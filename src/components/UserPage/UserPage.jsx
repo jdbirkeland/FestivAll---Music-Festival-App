@@ -2,15 +2,6 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import DayFriday from '../DayFriday/DayFriday';
-
-
 
 function UserPage() {
   const history = useHistory();
