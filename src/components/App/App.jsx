@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import HomePage from '../HomePage/HomePage';
 
 import './App.css';
 
@@ -47,6 +48,7 @@ function App() {
           >
             <AboutPage />
           </Route>
+
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -100,6 +102,7 @@ function App() {
             exact
             path="/home"
           >
+            <HomePage/>
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -114,6 +117,7 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
         </Switch>
         <Footer />
       </div>
