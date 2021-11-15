@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomePage/HomePage';
+import DayFriday from '../DayFriday/DayFriday';
 
 
 import './App.css';
@@ -70,6 +71,15 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/friday"
+          >
+            <DayFriday />
+          </ProtectedRoute>
+
 
           <Route
             exact

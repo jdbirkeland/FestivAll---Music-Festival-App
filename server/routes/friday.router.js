@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT * FROM "performance"`;
+  let queryText = `SELECT * FROM "performance"`; //will change this to JUST friday
 
   pool.query(queryText)
   .then(result => {

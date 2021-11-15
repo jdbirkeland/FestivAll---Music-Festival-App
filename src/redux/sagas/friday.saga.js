@@ -11,7 +11,7 @@ function* fetchDisplay() {
     }
 } //end fetchDisplay
 
-function* displaySaga() {
+function* fridaySaga() {
     yield takeLatest('FETCH_DISPLAY', fetchDisplay)
 }
 
