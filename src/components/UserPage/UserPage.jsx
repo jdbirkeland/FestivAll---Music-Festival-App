@@ -24,16 +24,22 @@ function UserPage() {
 
       <div>
         <p>This is the HOME PAGE</p>
-        <Route exact path="/friday">
-          <DayFriday />
-        </Route>
+       
         <button className="btn" onClick={() => {
           history.push('/friday');
         }}>Go to Friday - Day 1</button>
 
-        <button className="btn">Go to Saturday - Day 2</button>
-        <button className="btn">Go to Sunday - Day 3</button>
-        <button className="btn">Go to Favorites Page</button>
+        <button className="btn" onClick={() => {
+          history.push('/saturday');
+        }}>Go to Saturday - Day 2</button>
+
+        <button className="btn" onClick={() => {
+          history.push('/sunday');
+        }}>Go to Sunday - Day 3</button>
+
+        <button className="btn" onClick={() => {
+          history.push('/favorites');
+        }}>Go to Favorites Page</button>
       </div>
     </div>
   );

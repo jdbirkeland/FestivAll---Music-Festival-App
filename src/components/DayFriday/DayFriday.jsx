@@ -21,7 +21,7 @@ function DayFriday(props) {
   // a default value of 'Functional Component'
   const display = useSelector((store) => store);
 
-  const [heading, setHeading] = useState('Functional Component');
+  const [heading, setHeading] = useState('Friday Day 1');
 
   return (
     <div>

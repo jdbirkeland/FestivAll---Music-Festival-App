@@ -21,6 +21,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomePage/HomePage';
 import DayFriday from '../DayFriday/DayFriday';
+import DaySaturday from '../DaySaturday/DaySaturday';
+import DaySunday from '../DaySunday/DaySunday';
+import Favorites from '../Favorites/Favorites';
 
 
 import './App.css';
@@ -72,14 +75,21 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/friday"
-          >
+          <ProtectedRoute exact path="/friday" >
             <DayFriday />
           </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/saturday" >
+            <DaySaturday />
+          </ProtectedRoute>
 
+          <ProtectedRoute exact path="/sunday" >
+            <DaySunday />
+          </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/favorites" >
+            <Favorites />
+          </ProtectedRoute>
 
           <Route
             exact
