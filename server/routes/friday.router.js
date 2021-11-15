@@ -2,11 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+  // GET route
 router.get('/', (req, res) => {
-  // GET route code here
   console.log(req.user);
 
   let queryText = `SELECT * FROM "performance"`;
