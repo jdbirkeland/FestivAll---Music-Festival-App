@@ -17,6 +17,15 @@ function DayFriday(props) {
         dispatch({ type: 'FETCH_DISPLAY' })
     }, []);
 
+    const handleDelete = (item) => {
+        console.log(item.id);
+        dispatch({
+          type: 'DELETE_ITEM',
+          payload: item.id
+        })
+      }
+    
+
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     const friday = useSelector((store) => store.fridayReducer);
@@ -39,6 +48,8 @@ function DayFriday(props) {
                         <p>{item.description}</p>
                         <p>{item.link}</p>
                         {/* <img className="items" src={item.image_url} /> */}
+
+                        <button onClick={() => handleDelete(item)}>Delete Artist</button>
 
                     </div>
                 )

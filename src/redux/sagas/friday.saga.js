@@ -12,8 +12,21 @@ function* fetchDisplay() {
     }
 } //end fetchDisplay
 
+//function to delete
+function* deleteItem(action) {
+    try {
+        yield axios.delete(`/api/friday/${action.payload}`);
+        console.log(action.payload);
+        yield put({ type: 'FETCH_DISPLAY' })
+    } catch (error) {
+        console.log('Error in Delete', error);
+    }
+} //end deleteItem
+
+
 function* fridaySaga() {
     yield takeLatest('FETCH_DISPLAY', fetchDisplay)
+    yield takeLatest('DELETE_ITEM', deleteItem)
 }
 
 export default fridaySaga;
