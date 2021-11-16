@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -15,28 +15,36 @@ function DayFriday(props) {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DISPLAY' })
-      }, []);
+    }, []);
 
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const display = useSelector((store) => store);
+    // Using hooks we're creating local state for a "heading" variable with
+    // a default value of 'Functional Component'
+    const friday = useSelector((store) => store.fridayReducer);
 
-  const [heading, setHeading] = useState('Friday Day 1');
+    const [heading, setHeading] = useState('Friday Day 1');
 
-  return (
-    <div>
-      <h2>{heading}</h2>
-      {/* {display.map(item => {
-        return (
-          <div key={item.id}>
-            <p >{item.description}</p>
-            <img className="items" src={item.image_url} /> */}
+    console.log(friday);
 
-    </div>
-  );
-}
-    //   )}
-      
-      
+    return (
+        <div>
+            <h2>{heading}</h2>
+            {friday.map(item => {
+                return (
+                    <div key={item.id}>
+                        <p >{item.name}</p>
+                        {/* <img className="items" src={item.image_url} /> */}
+
+                    </div>
+                )
+            }
+
+            )}
+        </div>
+    )
+};
+
+
+
+
 
 export default DayFriday;

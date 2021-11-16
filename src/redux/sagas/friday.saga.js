@@ -6,6 +6,7 @@ function* fetchDisplay() {
     try {
         const response = yield axios.get('/api/friday')
         yield put({ type: 'SET_DISPLAY', payload: response.data })
+        console.log(response.data);
     } catch (err) {
         console.log('Error in FETCH_DISPLAY', err);
     }
