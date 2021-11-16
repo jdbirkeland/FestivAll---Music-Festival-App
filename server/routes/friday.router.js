@@ -6,7 +6,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT * FROM "performance"`; //will change this to JUST friday
+  let queryText = `SELECT * FROM performance
+  WHERE "day_performing" = 'Friday'`; //will change this to JUST friday
 
   pool.query(queryText)
   .then(result => {
@@ -16,38 +17,39 @@ router.get('/', (req, res) => {
       res.sendStatus(500);
   });
 
-});//End Get
+});//End GET
 
 /**
  * POST route template
  */
 router.post('/', (req, res) => {
   // POST route code here
-});
 
-// * Delete an item if it's something the logged in user added
-// */
-router.delete('/:id', (req, res) => {
- const idToDelete = req.params.id
- const idUser = req.user.id
- console.log('This is what we are deleting -->', idToDelete, idUser);
+});// End POST
 
- //query text needs to combine item id and check user id against the databases user_id
- let queryText = `
- DELETE FROM "performance"
- WHERE "id" = $1 AND "user_id" = $2
- `;
+// // * Delete an item if it's something the logged in user added
+// // */
+// router.delete('/:id', (req, res) => {
+//  const idToDelete = req.params.id
+//  const idUser = req.user.id
+//  console.log('This is what we are deleting -->', idToDelete, idUser);
 
- pool.query(queryText, [idToDelete, idUser])
-   .then(respond => {
-     res.send(200);
-   })
-   .catch(error => {
-     console.log('ERROR IN DELETE', error);
-     res.sendStatus(500);
-   })
- // endpoint functionality
-});
+//  //query text needs to combine item id and check user id against the databases user_id
+//  let queryText = `
+//  DELETE FROM "performance"
+//  WHERE "id" = $1 AND "user_id" = $2
+//  `;
+
+//  pool.query(queryText, [idToDelete, idUser])
+//    .then(respond => {
+//      res.send(200);
+//    })
+//    .catch(error => {
+//      console.log('ERROR IN DELETE', error);
+//      res.sendStatus(500);
+//    })
+//  // endpoint functionality
+// });
 
 
 module.exports = router;
