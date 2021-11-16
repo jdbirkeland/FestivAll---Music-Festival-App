@@ -19,6 +19,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import HomePage from '../HomePage/HomePage';
+import DayFriday from '../DayFriday/DayFriday';
+import DaySaturday from '../DaySaturday/DaySaturday';
+import DaySunday from '../DaySunday/DaySunday';
+import Favorites from '../Favorites/Favorites';
+
 
 import './App.css';
 
@@ -48,6 +54,7 @@ function App() {
             <AboutPage />
           </Route>
 
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -66,6 +73,22 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/friday" >
+            <DayFriday />
+          </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/saturday" >
+            <DaySaturday />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/sunday" >
+            <DaySunday />
+          </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/favorites" >
+            <Favorites />
           </ProtectedRoute>
 
           <Route
@@ -100,6 +123,7 @@ function App() {
             exact
             path="/home"
           >
+            <HomePage/>
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
@@ -114,6 +138,7 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
         </Switch>
         <Footer />
       </div>
