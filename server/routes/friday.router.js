@@ -24,7 +24,23 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  console.log('friday POST');
+  console.log('user', req.user);
 
+  const sqlText = `
+  INSERT INTO "performance" ("name", "day_performing","stage_id","set_start","set_finish","description","link")
+  VALUES ($1,$2,$3,$4,$5,$6,$7,$8);`
+
+  const userID = req.user.userID
+  const values = [req.body.name, req.body.day_performing, req.body.stage_id, req.body.set_start,req.body.set_finish, req.body.description, req.body.link, userID]
+
+  pool
+    .query(sqlText, values)
+    .then(result => {
+      res.sendStatus(201);
+    }) .catch(err => {
+      res.sendStatus(500);
+    })
 });// End POST
 
 // // * Delete an item if it's something the logged in user added
