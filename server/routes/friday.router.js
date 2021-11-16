@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
   INSERT INTO "performance" ("name", "day_performing","stage_id","set_start","set_finish","description","link")
   VALUES ($1,$2,$3,$4,$5,$6,$7,$8);`
 
-  const userID = req.user.userID
+  const userID = req.user.id
   const values = [req.body.name, req.body.day_performing, req.body.stage_id, req.body.set_start,req.body.set_finish, req.body.description, req.body.link, userID]
 
   pool

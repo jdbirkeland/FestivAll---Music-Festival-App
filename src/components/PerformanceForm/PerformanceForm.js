@@ -45,7 +45,7 @@ function PerformanceForm () {
         <input
         required
         value={newItem.name}
-        onChange={(event) => handleNameChange(event, 'description')}
+        onChange={(event) => handleNameChange(event, 'name')}
         placeholder="Artist Name"
         />
         {/* <input 
