@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import fridaySaga from './performance.saga';
+import performanceSaga from './performance.saga';
 import saturdaySaga from './saturday.saga';
 import sundaySaga from './sunday.saga';
 import favoritesSaga from './favorites.saga';
@@ -20,7 +20,7 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    fridaySaga(),
+    performanceSaga(),
     saturdaySaga(),
     sundaySaga(),
     favoritesSaga(),

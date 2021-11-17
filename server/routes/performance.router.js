@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   console.log(req.user);
 
   let queryText = `SELECT * FROM performance
-  WHERE "day_performing" = 'Saturday'`; //will change this to JUST friday
+  WHERE "day_performing" = 'Friday'`; //will change this to JUST friday
 
   pool.query(queryText)
   .then(result => {
@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
       console.log('Errrrrror', err);
       res.sendStatus(500);
   });
-
 });//End GET
 
 /**
@@ -31,15 +30,17 @@ router.post('/', (req, res) => {
   INSERT INTO "performance" ("name", "day_performing","stage_id","set_start","set_finish","description","link")
   VALUES ($1,$2,$3,$4,$5,$6,$7);`
 
-  // const userID = req.user.id
-  // console.log(userID);
+  const userID = req.user.id
+  console.log(userID);
   const values = [req.body.name, req.body.day_performing, req.body.stage_id, req.body.set_start,req.body.set_finish, req.body.description, req.body.link]
 
   pool
     .query(sqlText, values)
     .then(result => {
       res.sendStatus(201);
+      
     }) .catch(err => {
+      console.log('error NOW', err);
       res.sendStatus(500);
     })
 });// End POST
