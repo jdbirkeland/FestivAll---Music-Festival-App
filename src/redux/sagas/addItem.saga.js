@@ -8,7 +8,7 @@ function* addItem(action) {
     try{
         console.log('addItem in try');
 
-        yield axios.post('/api/friday', action.payload)
+        yield axios.post('/api/performance', action.payload)
         yield put({type: 'FETCH_DISPLAY'})
     } catch (err) {
         console.log('ERRRRROOOORRRRR, err');

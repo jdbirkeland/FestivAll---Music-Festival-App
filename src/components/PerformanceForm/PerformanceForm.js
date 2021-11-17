@@ -65,37 +65,37 @@ function PerformanceForm() {
               <input
                 required
                 value={newItem.day_performing}
-                onChange={(event) => handleNameChange(event, 'day_performing', item.id)}
+                onChange={(event) => handleNameChange(event, 'day_performing')}
                 placeholder="Day Performing"
               />
               <input
                 required
                 value={newItem.stage_id}
-                onChange={(event) => handleNameChange(event, 'stage_id', item.id)}
+                onChange={(event) => handleNameChange(event, 'stage_id')}
                 placeholder="Stage"
               />
               <input
                 required
                 value={newItem.set_start}
-                onChange={(event) => handleNameChange(event, 'set_start', item.id)}
+                onChange={(event) => handleNameChange(event, 'set_start')}
                 placeholder="Set Start Time"
               />
               <input
                 required
                 value={newItem.set_finish}
-                onChange={(event) => handleNameChange(event, 'set_finish', item.id)}
+                onChange={(event) => handleNameChange(event, 'set_finish')}
                 placeholder="Set Finish Time"
               />
               <input
                 required
                 value={newItem.description}
-                onChange={(event) => handleNameChange(event, 'description', item.id)}
+                onChange={(event) => handleNameChange(event, 'description')}
                 placeholder="Artist Description"
               />
               <input
                 required
                 value={newItem.link}
-                onChange={(event) => handleNameChange(event, 'link', item.id)}
+                onChange={(event) => handleNameChange(event, 'link')}
                 placeholder="Artist Link"
               />
 

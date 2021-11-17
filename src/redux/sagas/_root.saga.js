@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import fridaySaga from './friday.saga';
+import fridaySaga from './performance.saga';
 import saturdaySaga from './saturday.saga';
 import sundaySaga from './sunday.saga';
 import favoritesSaga from './favorites.saga';

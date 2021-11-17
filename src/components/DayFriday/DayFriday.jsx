@@ -14,11 +14,11 @@ function DayFriday(props) {
 
     const dispatch = useDispatch();
 
-    const friday = useSelector((store) => store.fridayReducer);
+    const performance = useSelector((store) => store.performanceReducer);
 
     const [heading, setHeading] = useState('Friday Day 1');
 
-    console.log(friday);
+    console.log(performance);
 
     const [editMode, setEditMode] = useState(false);
 
@@ -87,7 +87,7 @@ function DayFriday(props) {
             <PerformanceForm />
             <h2>{heading}</h2>
             <button onClick={() => handleEdit()}>Edit</button>
-            {friday.map(item => {
+            {performance.map(item => {
                 return (
                     <div key={item.id}>
                         <p>{item.name}</p>

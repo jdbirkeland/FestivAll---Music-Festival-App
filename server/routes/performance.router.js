@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   console.log(req.user);
 
   let queryText = `SELECT * FROM performance
-  WHERE "day_performing" = 'Friday'`; //will change this to JUST friday
+  WHERE "day_performing" = 'Saturday'`; //will change this to JUST friday
 
   pool.query(queryText)
   .then(result => {
@@ -29,10 +29,11 @@ router.post('/', (req, res) => {
 
   const sqlText = `
   INSERT INTO "performance" ("name", "day_performing","stage_id","set_start","set_finish","description","link")
-  VALUES ($1,$2,$3,$4,$5,$6,$7,$8);`
+  VALUES ($1,$2,$3,$4,$5,$6,$7);`
 
-  const userID = req.user.id
-  const values = [req.body.name, req.body.day_performing, req.body.stage_id, req.body.set_start,req.body.set_finish, req.body.description, req.body.link, userID]
+  // const userID = req.user.id
+  // console.log(userID);
+  const values = [req.body.name, req.body.day_performing, req.body.stage_id, req.body.set_start,req.body.set_finish, req.body.description, req.body.link]
 
   pool
     .query(sqlText, values)
