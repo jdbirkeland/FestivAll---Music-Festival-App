@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   console.log(req.user);
 
   let queryText = `SELECT * FROM performance
-  WHERE "day_performing" = 'Friday'`; //will change this to JUST friday
+  WHERE "day_performing" = 1`; //will change this to JUST friday
 
   pool.query(queryText)
   .then(result => {
