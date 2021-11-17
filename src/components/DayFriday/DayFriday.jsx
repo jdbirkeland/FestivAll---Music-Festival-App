@@ -37,12 +37,13 @@ function DayFriday(props) {
         dispatch({ type: 'FETCH_DISPLAY' })
     }, []);
 
-
+    //start handleEdit
     const handleEdit = (item) => {
         console.log('TEST!');
         setEditMode(!editMode) //toggle for editMode
-    }
+    } //end handleEdit
 
+    //start handleNameChange
     const handleNameChange = (event, property, item) => {
         console.log('This is ITEM', item);
         setEditItem({
@@ -50,8 +51,9 @@ function DayFriday(props) {
             id: item,
             [property]: event.target.value
         })
-    }
+    } //end handleNameChange
 
+    //start handleSubmit
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('clicked');
@@ -68,16 +70,16 @@ function DayFriday(props) {
             link: '',
         })
         setEditMode(false);
-    }
+    } //end handleSubmit
 
-
+    //start handleDelete
     const handleDelete = (item) => {
         console.log(item.id);
         dispatch({
             type: 'DELETE_ITEM',
             payload: item.id
         })
-    }
+    } //end handleDelete
 
 
     // Using hooks we're creating local state for a "heading" variable with
@@ -92,7 +94,7 @@ function DayFriday(props) {
                     <div key={item.id}>
                         <p>{item.name}</p>
                         <p>{item.day_performing}</p>
-                        {/* <p > {item.stage_id}</p> */}
+                        <p > {item.stage_id}</p>
                         <p> {item.set_start} - {item.set_finish}</p>
                         <p>{item.description}</p>
                         <p>{item.link}</p>

@@ -23,10 +23,22 @@ function* deleteItem(action) {
     }
 } //end deleteItem
 
+//start updateItem
+function* updateItem(action) {
+    try{
+        console.log(action.payload);
+        yield axios.put(`api/performance/${action.payload.id}`, action.payload);
+        yield put({type: 'FETCH_DISPLAY'})
+    } catch(error) {
+        console.log('Error in UPDATE', error);
+    }
+} //end updateItem
 
-function* fridaySaga() {
+
+function* performanceSaga() {
     yield takeLatest('FETCH_DISPLAY', fetchDisplay)
     yield takeLatest('DELETE_ITEM', deleteItem)
+    yield takeLatest('EDIT_ITEM', updateItem)
 }
 
-export default fridaySaga;
+export default performanceSaga;
