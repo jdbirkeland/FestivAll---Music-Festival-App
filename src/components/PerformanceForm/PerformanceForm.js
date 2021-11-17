@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
-function PerformanceForm () {
+function PerformanceForm() {
 
   const dispatch = useDispatch();
+
+  const [editMode, setEditMode] = useState(false);
 
   const [newItem, setNewItem] = useState({
     name: '',
@@ -13,11 +15,17 @@ function PerformanceForm () {
     set_finish: '',
     description: '',
     link: '',
-})
+  })
+
+  const handleEdit = (item) => {
+    console.log('TEST!');
+    setEditMode(!editMode) //toggle for editMode
+  }
+
 
   const handleNameChange = (event, property) => {
     setNewItem({
-      ...newItem, 
+      ...newItem,
       [property]: event.target.value
     })
   } // end handleNameChange
@@ -35,28 +43,70 @@ function PerformanceForm () {
       set_finish: '',
       description: '',
       link: '',
-  })
+    })
 
   } // end handleSubmit
-    return (
-      
-        <form onSubmit={handleSubmit}> 
-        <h2>Performance to Add</h2>
-        <input
-        required
-        value={newItem.name}
-        onChange={(event) => handleNameChange(event, 'name')}
-        placeholder="Artist Name"
-        />
-        {/* <input 
-        required
-        value={newItem.image_url}
-        onChange={(event) => handleNameChange(event, 'image_url')}
-        placeholder="Image URL"/> */}
+  return (
+    <div className="container">
+      <button onClick={() => handleEdit()}>Create</button>
 
-        <button type="submit">ADD PERFORMANCE</button>
-      </form>
-    )
+      {
+        editMode ?
+          <>
+
+            <form onSubmit={handleSubmit} >
+              {/* <h2>Performance to Add</h2> */}
+              <input
+                required
+                value={newItem.name}
+                onChange={(event) => handleNameChange(event, 'name')}
+                placeholder="Artist Name"
+              />
+              <input
+                required
+                value={newItem.day_performing}
+                onChange={(event) => handleNameChange(event, 'day_performing', item.id)}
+                placeholder="Day Performing"
+              />
+              <input
+                required
+                value={newItem.stage_id}
+                onChange={(event) => handleNameChange(event, 'stage_id', item.id)}
+                placeholder="Stage"
+              />
+              <input
+                required
+                value={newItem.set_start}
+                onChange={(event) => handleNameChange(event, 'set_start', item.id)}
+                placeholder="Set Start Time"
+              />
+              <input
+                required
+                value={newItem.set_finish}
+                onChange={(event) => handleNameChange(event, 'set_finish', item.id)}
+                placeholder="Set Finish Time"
+              />
+              <input
+                required
+                value={newItem.description}
+                onChange={(event) => handleNameChange(event, 'description', item.id)}
+                placeholder="Artist Description"
+              />
+              <input
+                required
+                value={newItem.link}
+                onChange={(event) => handleNameChange(event, 'link', item.id)}
+                placeholder="Artist Link"
+              />
+
+              <button type="submit">Create Performance</button>
+            </form >
+          </> :
+          <button type="submit">Update Edit</button>
+
+      }
+    </div>
+  )
 }
 
 export default PerformanceForm;

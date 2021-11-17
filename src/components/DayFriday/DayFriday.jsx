@@ -107,6 +107,44 @@ function DayFriday(props) {
                                         onChange={(event) => handleNameChange(event, 'name', item.id)}
                                         placeholder="Artist Name"
                                     />
+                                                                        <input
+                                        required
+                                        value={editItem.day_performing}
+                                        onChange={(event) => handleNameChange(event, 'day_performing', item.id)}
+                                        placeholder="Day Performing"
+                                    />
+                                                                        <input
+                                        required
+                                        value={editItem.stage_id}
+                                        onChange={(event) => handleNameChange(event, 'stage_id', item.id)}
+                                        placeholder="Stage"
+                                    />
+                                                                        <input
+                                        required
+                                        value={editItem.set_start}
+                                        onChange={(event) => handleNameChange(event, 'set_start', item.id)}
+                                        placeholder="Set Start Time"
+                                    />
+                                                                        <input
+                                        required
+                                        value={editItem.set_finish}
+                                        onChange={(event) => handleNameChange(event, 'set_finish', item.id)}
+                                        placeholder="Set Finish Time"
+                                    />
+                                                                        <input
+                                        required
+                                        value={editItem.description}
+                                        onChange={(event) => handleNameChange(event, 'description', item.id)}
+                                        placeholder="Artist Description"
+                                    />
+                                                                        <input
+                                        required
+                                        value={editItem.link}
+                                        onChange={(event) => handleNameChange(event, 'link', item.id)}
+                                        placeholder="Artist Link"
+                                    />
+
+
                                     <button type="submit">Update Edit</button>
                                 </form>
                             </> :
