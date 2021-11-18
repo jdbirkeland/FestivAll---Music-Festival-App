@@ -1,12 +1,12 @@
-const sundayReducer = (state = {}, action) => {
-    switch (action.type) {
-      case 'SET_DISPLAY':
-        return action.payload;
-    //   case 'UNSET_USER':
-    //     return {};
-      default:
-        return state;
-    }
-  };
+// const sundayReducer = (state = {}, action) => {
+//     switch (action.type) {
+//       case 'SET_DISPLAY':
+//         return action.payload;
+//     //   case 'UNSET_USER':
+//     //     return {};
+//       default:
+//         return state;
+//     }
+//   };
   
-  export default sundayReducer;
+//   export default sundayReducer;

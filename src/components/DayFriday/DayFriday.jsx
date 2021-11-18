@@ -34,7 +34,7 @@ function DayFriday(props) {
     })
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_DISPLAY' })
+        dispatch({ type: 'FETCH_DISPLAY_FRIDAY' })
     }, []);
 
     //start handleEdit

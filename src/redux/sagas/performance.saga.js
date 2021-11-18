@@ -28,7 +28,7 @@ function* updateItem(action) {
     try{
         console.log(action.payload);
         yield axios.put(`api/performance/${action.payload.id}`, action.payload);
-        yield put({type: 'FETCH_DISPLAY'})
+        yield put({type: 'FETCH_DISPLAY_FRIDAY'})
     } catch(error) {
         console.log('Error in UPDATE', error);
     }

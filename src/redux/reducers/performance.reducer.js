@@ -1,4 +1,4 @@
-const fridayReducer = (state = [], action) => {
+const performanceReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_DISPLAY':
         return action.payload;
@@ -9,4 +9,4 @@ const fridayReducer = (state = [], action) => {
     }
   };
   
-  export default fridayReducer;
+  export default performanceReducer;

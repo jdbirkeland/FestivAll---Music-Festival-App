@@ -6,7 +6,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT * FROM "performance"`; //will change this to JUST Saturday
+  let queryText = `SELECT * FROM "performance"
+  WHERE "day_performing" = 2;`; //will change this to JUST Saturday
 
   pool.query(queryText)
   .then(result => {
