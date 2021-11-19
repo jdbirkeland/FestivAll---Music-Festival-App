@@ -36,8 +36,8 @@ function* updateItem(action) {
 
 function* sundaySaga() {
     yield takeLatest('FETCH_DISPLAY_SUNDAY', fetchDisplay)
-    yield takeLatest('DELETE_ITEM', deleteItem)
-    yield takeLatest('EDIT_ITEM', updateItem)
+    yield takeLatest('DELETE_ITEM_SUNDAY', deleteItem)
+    yield takeLatest('EDIT_ITEM_SUNDAY', updateItem)
 }
 
 export default sundaySaga;

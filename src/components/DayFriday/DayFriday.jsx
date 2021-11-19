@@ -86,9 +86,8 @@ function DayFriday(props) {
     // a default value of 'Functional Component'
     return (
         <div className="container">
-            <PerformanceForm />
             <h2>{heading}</h2>
-            
+
             {performance.map(item => {
                 return (
                     <div key={item.id}>
@@ -151,6 +150,7 @@ function DayFriday(props) {
                             <button onClick={() => handleDelete(item)}>Delete Artist</button>}
                     </div>)
             })}
+            <PerformanceForm />
 
         </div>
     )

@@ -2,6 +2,8 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './UserPage.css';
+
 
 function UserPage() {
   const history = useHistory();
@@ -12,28 +14,29 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       {/* <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" /> */}
-      <br/>
+      <br />
       <div>
-        <p>This is the HOME PAGE</p>
-       
+        {/* <p>This is the HOME PAGE</p> */}
+
         <button className="btn" onClick={() => {
           history.push('/friday');
-        }}>Go to Friday - Day 1</button>
-
+        }}>Friday - Day 1</button>
+        <br />
         <button className="btn" onClick={() => {
           history.push('/saturday');
-        }}>Go to Saturday - Day 2</button>
-
+        }}>Saturday - Day 2</button>
+        <br />
         <button className="btn" onClick={() => {
           history.push('/sunday');
-        }}>Go to Sunday - Day 3</button>
-
+        }}>Sunday - Day 3</button>
+        <br />
         <button className="btn" onClick={() => {
           history.push('/favorites');
-        }}>Go to Favorites Page</button>
+        }}>Favorites Page</button>
+        <br />
       </div>
-      <br/>
-      <p>Your ID is: {user.id}</p>
+      <br />
+      {/* <p>Your ID is: {user.id}</p> */}
       <LogOutButton className="btn" />
     </div>
   );
