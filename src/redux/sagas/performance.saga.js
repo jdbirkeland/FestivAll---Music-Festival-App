@@ -8,7 +8,7 @@ function* fetchDisplay() {
         yield put({ type: 'SET_DISPLAY', payload: response.data })
         console.log(response.data);
     } catch (err) {
-        console.log('Error in FETCH_DISPLAY', err);
+        console.log('Error in FETCH_DISPLAY_FRIDAY', err);
     }
 } //end fetchDisplay
 
@@ -17,7 +17,7 @@ function* deleteItem(action) {
     try {
         yield axios.delete(`/api/performance/${action.payload}`);
         console.log(action.payload);
-        yield put({ type: 'FETCH_DISPLAY' })
+        yield put({ type: 'FETCH_DISPLAY_FRIDAY' })
     } catch (error) {
         console.log('Error in Delete', error);
     }
@@ -36,7 +36,7 @@ function* updateItem(action) {
 
 
 function* performanceSaga() {
-    yield takeLatest('FETCH_DISPLAY', fetchDisplay)
+    yield takeLatest('FETCH_DISPLAY_FRIDAY', fetchDisplay)
     yield takeLatest('DELETE_ITEM', deleteItem)
     yield takeLatest('EDIT_ITEM', updateItem)
 }

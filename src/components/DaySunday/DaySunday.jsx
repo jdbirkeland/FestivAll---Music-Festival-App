@@ -33,7 +33,7 @@ function DaySunday(props) {
     })
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_DISPLAY' })
+        dispatch({ type: 'FETCH_DISPLAY_SUNDAY' })
     }, []);
 
     //start handleEdit
