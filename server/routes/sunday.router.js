@@ -6,7 +6,10 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT * FROM "performance"`; //will change this to JUST Sunday
+  let queryText = `SELECT "performance"."name","stage_name", "set_start", "set_finish", "description", "link" FROM performance
+  JOIN "day" ON "performance"."day_performing" = "day"."id"
+  JOIN "stage" ON "performance"."stage_id" = "stage"."id"
+  WHERE "day_performing" = 3;"`; //will change this to JUST Sunday
 
   pool.query(queryText)
   .then(result => {

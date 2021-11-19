@@ -91,10 +91,10 @@ function DaySaturday(props) {
             {performance.map(item => {
                 return (
                     <div key={item.id}>
-                        <p>{item.name}</p>
-                        <p>{item.day_performing}</p>
-                        <p > {item.stage_id}</p>
-                        <p> {item.set_start} - {item.set_finish}</p>
+                        <p>Artist: {item.name}</p>
+                        {/* <p>{item.day_performing}</p> */}
+                        <p>Stage: {item.stage_name}</p>
+                        <p>Set Time: {item.set_start} - {item.set_finish}</p>
                         <p>{item.description}</p>
                         <p>{item.link}</p>
                         {/* <img className="items" src={item.image_url} /> */}
