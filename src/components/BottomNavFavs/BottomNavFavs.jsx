@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import Paper from '@mui/material/Paper';
 import HomeIcon from '@mui/icons-material/Home';
 import FestivalIcon from '@mui/icons-material/Festival';
@@ -29,9 +28,10 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction component={Link} to="/user" label="Home" icon={<HomeIcon />} />
+          <BottomNavigationAction component={Link} to="/friday" label="Friday" icon={<FestivalIcon />} />
           <BottomNavigationAction component={Link} to="/saturday" label="Saturday" icon={<FestivalIcon />} />
           <BottomNavigationAction component={Link} to="/sunday" label="Sunday" icon={<FestivalIcon />} />
-          <BottomNavigationAction component={Link} to="/favorites" label="Favorites" icon={<FavoriteIcon />} />
+          
         </BottomNavigation>
       </Paper>
     </Box>

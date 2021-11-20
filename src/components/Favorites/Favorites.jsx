@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-
+import FixedBottomNavigation from '../BottomNavFavs/BottomNavFavs';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -21,6 +21,7 @@ function Favorites(props) {
   return (
     <div>
       <h2>{heading}</h2>
+      <FixedBottomNavigation/>
     </div>
   );
 }

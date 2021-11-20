@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import FixedBottomNavigation from '../BottomNavSunday/BottomNavSunday';
 
 
 // Basic functional component structure for React with default state
@@ -151,7 +151,7 @@ function DaySunday(props) {
           </div>)
       })}
       <PerformanceForm />
-
+      <FixedBottomNavigation/>
     </div>
   )
 };
