@@ -131,16 +131,16 @@ function DaySaturday(props) {
                     placeholder="Set Finish Time"
                   />
                   <input
-                    required
+                    // required
                     value={editItem.description}
                     onChange={(event) => handleNameChange(event, 'description', item.id)}
-                    placeholder="Artist Description"
+                    placeholder="Artist Description(not required)"
                   />
                   <input
-                    required
+                    // required
                     value={editItem.link}
                     onChange={(event) => handleNameChange(event, 'link', item.id)}
-                    placeholder="Artist Link"
+                    placeholder="Artist Link(not required)"
                   />
                   <button type="submit">Update Edit</button>
                 </form>

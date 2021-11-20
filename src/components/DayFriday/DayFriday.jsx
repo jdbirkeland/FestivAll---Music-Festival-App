@@ -5,7 +5,7 @@ import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import './DayFriday.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
+import FixedBottomNavigation from '../BottomNav/BottomNav';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -92,7 +92,7 @@ function DayFriday(props) {
                 return (
                     <div key={item.id}>
                         <p>Artist: {item.name}</p>
-                        <p>{item.day_performing}</p>
+                        {/* <p>{item.day_performing}</p> */}
                         <p > Stage: {item.stage_name}</p>
                         <p> Set Time: {item.set_start} - {item.set_finish}</p>
                         <p>{item.description}</p>
@@ -133,13 +133,13 @@ function DayFriday(props) {
                                         placeholder="Set Finish Time"
                                     />
                                     <input
-                                        required
+                                        // required
                                         value={editItem.description}
                                         onChange={(event) => handleNameChange(event, 'description', item.id)}
                                         placeholder="Artist Description"
                                     />
                                     <input
-                                        required
+                                        // required
                                         value={editItem.link}
                                         onChange={(event) => handleNameChange(event, 'link', item.id)}
                                         placeholder="Artist Link"
@@ -151,7 +151,7 @@ function DayFriday(props) {
                     </div>)
             })}
             <PerformanceForm />
-
+            <FixedBottomNavigation/>
         </div>
     )
 };
