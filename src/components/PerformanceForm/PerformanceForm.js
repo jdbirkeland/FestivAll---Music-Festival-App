@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import CreateIcon from '@mui/icons-material/Create';
+import DoneIcon from '@mui/icons-material/Done';
 
 function PerformanceForm() {
 
@@ -88,13 +89,13 @@ function PerformanceForm() {
                 placeholder="Set Finish Time"
               />
               <input
-                required
+                // required
                 value={newItem.description}
                 onChange={(event) => handleCreateName(event, 'description')}
                 placeholder="Artist Description"
               />
               <input
-                required
+                // required
                 value={newItem.link}
                 onChange={(event) => handleCreateName(event, 'link')}
                 placeholder="Artist Link"
