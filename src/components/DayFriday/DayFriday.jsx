@@ -6,6 +6,7 @@ import './DayFriday.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
+import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -81,13 +82,29 @@ function DayFriday(props) {
         })
     } //end handleDelete
 
+    // const rows: GridRowsProp = [
+    //     // { id: item.id, col1: item.name, col2: item.stage_name },
+    //     { id: 2, col1: "XGrid", col2: "is Awesome" },
+    //     { id: 3, col1: "Material-UI", col2: "is Amazing" },
+    //     { id: 4, col1: "Hello", col2: "World" },
+    //     { id: 5, col1: "XGrid", col2: "is Awesome" },
+    //     { id: 6, col1: "Material-UI", col2: "is Amazing" }
+    //   ];
+
+    //   const columns: GridColDef[] = [
+    //     { field: "id", hide: true },
+    //     { field: "col1", headerName: "Column 1", width: 150 },
+    //     { field: "col2", headerName: "Column 2", width: 150 }
+    //   ];
+      
+      
 
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     return (
         <div className="container">
             <h2>{heading}</h2>
-
+            {/* <DataGrid rows={rows} columns={columns} /> */}
             {performance.map(item => {
                 return (
                     <div key={item.id}>

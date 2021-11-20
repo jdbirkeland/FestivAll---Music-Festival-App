@@ -93,7 +93,7 @@ function DaySunday(props) {
           <div key={item.id}>
             <p>Artist: {item.name}</p>
             {/* <p>{item.day_performing}</p> */}
-            <p>Stage: {item.stage_id}</p>
+            <p>Stage: {item.stage_name}</p>
             <p>Set Time: {item.set_start} - {item.set_finish}</p>
             <p>{item.description}</p>
             <p>{item.link}</p>
