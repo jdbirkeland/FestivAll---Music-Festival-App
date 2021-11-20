@@ -7,15 +7,37 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import Paper from '@material-ui/core/Paper';
+import { ViewState } from '@devexpress/dx-react-scheduler';
+import {
+    Scheduler,
+    DayView,
+    Appointments,
+} from '@devexpress/dx-react-scheduler-material-ui';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function DayFriday(props) {
 
+
+
     const dispatch = useDispatch();
 
     const performance = useSelector((store) => store.performanceReducer);
+
+    performance.forEach(performance => {
+        for (let key in performance) {
+            console.log(`${key}: ${performance[key]}`);
+        }
+    });
+
+        const currentDate = '2021-11-20';
+    const schedulerData = [
+        { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'ppp'},
+        { startDate: '2021-11-20T12:00', endDate: '2021-11-20T13:30', title: 'The Good Sax' },
+    ];
+
 
     const [heading, setHeading] = useState('Friday Day 1');
 
@@ -82,6 +104,7 @@ function DayFriday(props) {
         })
     } //end handleDelete
 
+
     // const rows: GridRowsProp = [
     //     // { id: item.id, col1: item.name, col2: item.stage_name },
     //     { id: 2, col1: "XGrid", col2: "is Awesome" },
@@ -96,8 +119,8 @@ function DayFriday(props) {
     //     { field: "col1", headerName: "Column 1", width: 150 },
     //     { field: "col2", headerName: "Column 2", width: 150 }
     //   ];
-      
-      
+
+    // console.log(performance[1].name);
 
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
@@ -115,7 +138,7 @@ function DayFriday(props) {
                         <p>{item.description}</p>
                         <p>{item.link}</p>
                         {/* <img className="items" src={item.image_url} /> */}
-                        <EditIcon onClick={() => handleEdit()}/>Edit
+                        <EditIcon onClick={() => handleEdit()} />Edit
                         {editMode ?
                             <>
                                 <form onSubmit={handleSubmit}>
@@ -164,11 +187,27 @@ function DayFriday(props) {
                                     <button type="submit">Update Edit</button>
                                 </form>
                             </> :
-                            <DeleteIcon onClick={() => handleDelete(item)}/>}Delete
+                            <DeleteIcon onClick={() => handleDelete(item)} />}Delete
                     </div>)
             })}
             <PerformanceForm />
-            <FixedBottomNavigation/>
+            <FixedBottomNavigation />
+
+            <Paper>
+        <Scheduler
+            data={schedulerData}
+        >
+            <ViewState
+                currentDate={currentDate}
+            />
+            <DayView
+                startDayHour={12}
+                endDayHour={24}
+            />
+            <Appointments />
+        </Scheduler>
+    </Paper>
+
         </div>
     )
 };
