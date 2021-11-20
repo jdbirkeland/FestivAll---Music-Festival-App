@@ -26,22 +26,26 @@ function DayFriday(props) {
 
     const performance = useSelector((store) => store.performanceReducer);
 
-    performance.forEach(performance => {
-        for (let key in performance) {
-            console.log(`${key}: ${performance[key]}`);
-        }
-    });
+    // performance.forEach(performance => {
+    //     for (let key in performance) {
+    //         // console.log(`${key}: ${performance[key]}`);
+    //         console.log(performance.name);
+    //     }
+    // });
 
-        const currentDate = '2021-11-20';
+    for (let i = 0; i < performance.length; i++) {
+        console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
+    }
+
+    const currentDate = '2021-11-20';
     const schedulerData = [
-        { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'ppp'},
-        { startDate: '2021-11-20T12:00', endDate: '2021-11-20T13:30', title: 'The Good Sax' },
+        { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'performance[2].name' },
     ];
 
 
     const [heading, setHeading] = useState('Friday Day 1');
 
-    console.log(performance);
+    // console.log(performance);
 
     const [editMode, setEditMode] = useState(false);
 
@@ -132,7 +136,7 @@ function DayFriday(props) {
                 return (
                     <div key={item.id}>
                         <p>Artist: {item.name}</p>
-                        {/* <p>{item.day_performing}</p> */}
+                        {/* <p>{item.day}</p> */}
                         <p > Stage: {item.stage_name}</p>
                         <p> Set Time: {item.set_start} - {item.set_finish}</p>
                         <p>{item.description}</p>
@@ -194,19 +198,19 @@ function DayFriday(props) {
             <FixedBottomNavigation />
 
             <Paper>
-        <Scheduler
-            data={schedulerData}
-        >
-            <ViewState
-                currentDate={currentDate}
-            />
-            <DayView
-                startDayHour={12}
-                endDayHour={24}
-            />
-            <Appointments />
-        </Scheduler>
-    </Paper>
+                <Scheduler
+                    data={schedulerData}
+                >
+                    <ViewState
+                        currentDate={currentDate}
+                    />
+                    <DayView
+                        startDayHour={12}
+                        endDayHour={24}
+                    />
+                    <Appointments />
+                </Scheduler>
+            </Paper>
 
         </div>
     )
