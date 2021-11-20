@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import './DayFriday.css';
-
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 // Basic functional component structure for React with default state
@@ -98,7 +98,7 @@ function DayFriday(props) {
                         <p>{item.description}</p>
                         <p>{item.link}</p>
                         {/* <img className="items" src={item.image_url} /> */}
-                        <button onClick={() => handleEdit()}>Edit</button>
+                        <EditIcon onClick={() => handleEdit()}/>Edit
                         {editMode ?
                             <>
                                 <form onSubmit={handleSubmit}>
@@ -147,7 +147,7 @@ function DayFriday(props) {
                                     <button type="submit">Update Edit</button>
                                 </form>
                             </> :
-                            <button onClick={() => handleDelete(item)}>Delete Artist</button>}
+                            <DeleteIcon onClick={() => handleDelete(item)}/>}Delete
                     </div>)
             })}
             <PerformanceForm />

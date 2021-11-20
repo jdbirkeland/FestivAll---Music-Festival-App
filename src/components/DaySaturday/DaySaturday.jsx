@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PerformanceForm from '../PerformanceForm/PerformanceForm';
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -95,7 +96,7 @@ function DaySaturday(props) {
             <p>{item.description}</p>
             <p>{item.link}</p>
             {/* <img className="items" src={item.image_url} /> */}
-            <button onClick={() => handleEdit()}>Edit</button>
+            <EditIcon onClick={() => handleEdit()} />Edit
             {editMode ?
               <>
                 <form onSubmit={handleSubmit}>
@@ -144,7 +145,7 @@ function DaySaturday(props) {
                   <button type="submit">Update Edit</button>
                 </form>
               </> :
-              <button onClick={() => handleDelete(item)}>Delete Artist</button>}
+              <DeleteIcon onClick={() => handleDelete(item)} />}Delete
           </div>)
       })}
       <PerformanceForm />

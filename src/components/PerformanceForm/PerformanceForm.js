@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import CreateIcon from '@mui/icons-material/Create';
 
 function PerformanceForm() {
 
@@ -51,7 +52,7 @@ function PerformanceForm() {
   
   return (
     <div className="container">
-      <button onClick={() => handleEdit()}>Create</button>
+      <CreateIcon onClick={() => handleEdit()}/>Create New Performance
       {editMode ?
           <>
             <form onSubmit={handleSubmit} >
@@ -101,7 +102,7 @@ function PerformanceForm() {
               <button type="submit">Create Performance</button>
             </form >
           </> :
-          <button type="submit">Update Edit</button>}
+          <p ></p>}
     </div>
   )
 }
