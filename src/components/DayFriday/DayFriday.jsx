@@ -5,7 +5,7 @@ import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import './DayFriday.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import FixedBottomNavigation from '../BottomNav/BottomNav';
+import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the

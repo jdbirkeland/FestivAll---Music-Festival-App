@@ -3,10 +3,11 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
 import Paper from '@mui/material/Paper';
+import HomeIcon from '@mui/icons-material/Home';
+import FestivalIcon from '@mui/icons-material/Festival';
+import { Link } from 'react-router-dom';
 
 
 export default function FixedBottomNavigation() {
@@ -27,9 +28,10 @@ export default function FixedBottomNavigation() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+          <BottomNavigationAction component={Link} to="/user" label="Home" icon={<HomeIcon />} />
+          <BottomNavigationAction component={Link} to="/saturday" label="Day 2" icon={<FestivalIcon />} />
+          <BottomNavigationAction component={Link} to="/sunday" label="Day 3" icon={<FestivalIcon />} />
+          <BottomNavigationAction component={Link} to="/favorites" label="Favorites" icon={<FavoriteIcon />} />
         </BottomNavigation>
       </Paper>
     </Box>
