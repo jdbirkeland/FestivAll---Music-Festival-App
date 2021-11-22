@@ -25,7 +25,7 @@ const router = express.Router();
   router.get('/', (req, res) => {
     console.log(req.user);
   
-    let queryText = `SELECT "performance2"."name", "day"."day", "stage"."stage_name", "set_start" + INTERVAL '6 hours' as "set_start" ,  "set_finish" + INTERVAL '6 hours' as "set_finish" , "description", "link" FROM performance2
+    let queryText = `SELECT "performance2"."name", "day"."day", "stage"."stage_name", "set_start",  "set_finish" , "description", "link" FROM performance2
     JOIN "day" ON "performance2"."day_performing" = "day"."id"
     JOIN "stage" ON "performance2"."stage_id" = "stage"."id"
     WHERE "day_performing" = 1;
