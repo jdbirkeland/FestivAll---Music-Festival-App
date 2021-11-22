@@ -16,17 +16,20 @@ function UserFriday(props) {
 
     const dispatch = useDispatch();
 
-
     const performance = useSelector((store) => store.performanceReducer);
 
+    const schedulerData = [];
+
     for (let i = 0; i < performance.length; i++) {
-        console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
+        // console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
+        let dateScheduler = {startDate: performance[i].set_start, endDate: performance[i].set_finish, title: performance[i].name};
+        console.log(dateScheduler);
+        schedulerData.push(dateScheduler)
     }
 
+    const friday = '2021-11-19'
     const currentDate = '2021-11-19';
-    const schedulerData = [
-        { startDate: '2021-11-19T14:45', endDate: '2021-11-19T16:00', title: performance[2].name },
-    ];
+    
 
     const [heading, setHeading] = useState('USER Friday Day 1');
 
