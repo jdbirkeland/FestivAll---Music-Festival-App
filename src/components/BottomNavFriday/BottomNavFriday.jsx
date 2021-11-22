@@ -29,8 +29,8 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction component={Link} to="/user" label="Home" icon={<HomeIcon />} />
-          <BottomNavigationAction component={Link} to="/saturday" label="Saturday" icon={<FestivalIcon />} />
-          <BottomNavigationAction component={Link} to="/sunday" label="Sunday" icon={<FestivalIcon />} />
+          <BottomNavigationAction component={Link} to="/usersaturday" label="Saturday" icon={<FestivalIcon />} />
+          <BottomNavigationAction component={Link} to="/usersunday" label="Sunday" icon={<FestivalIcon />} />
           <BottomNavigationAction component={Link} to="/favorites" label="Favorites" icon={<FavoriteIcon />} />
         </BottomNavigation>
       </Paper>

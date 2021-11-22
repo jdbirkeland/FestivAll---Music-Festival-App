@@ -19,15 +19,15 @@ function UserPage() {
         {/* <p>This is the HOME PAGE</p> */}
 
         <button className="btn" onClick={() => {
-          history.push('/friday');
+          history.push('/userfriday');
         }}>Friday - Day 1</button>
         <br />
         <button className="btn" onClick={() => {
-          history.push('/saturday');
+          history.push('/usersaturday');
         }}>Saturday - Day 2</button>
         <br />
         <button className="btn" onClick={() => {
-          history.push('/sunday');
+          history.push('/usersunday');
         }}>Sunday - Day 3</button>
         <br />
         <button className="btn" onClick={() => {

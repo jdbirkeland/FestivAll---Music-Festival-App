@@ -33,14 +33,14 @@ function DayFriday(props) {
     //     }
     // });
 
-    for (let i = 0; i < performance.length; i++) {
-        console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
-    }
+    // for (let i = 0; i < performance.length; i++) {
+    //     console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
+    // }
 
-    const currentDate = '2021-11-20';
-    const schedulerData = [
-        { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'performance[2].name' },
-    ];
+    // const currentDate = '2021-11-20'; 
+    // const schedulerData = [
+    //     { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'pp' },
+    // ];
 
 
     const [heading, setHeading] = useState('Friday Day 1');
@@ -197,7 +197,7 @@ function DayFriday(props) {
             <PerformanceForm />
             <FixedBottomNavigation />
 
-            <Paper>
+            {/* <Paper>
                 <Scheduler
                     data={schedulerData}
                 >
@@ -210,7 +210,7 @@ function DayFriday(props) {
                     />
                     <Appointments />
                 </Scheduler>
-            </Paper>
+            </Paper> */}
 
         </div>
     )

@@ -29,15 +29,15 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/friday">
-              Day 1
+              Admin1
             </Link>
 
             <Link className="navLink" to="/saturday">
-              Day 2
+              Admin2
             </Link>
 
             <Link className="navLink" to="/sunday">
-              Day 3
+              Admin3
             </Link>
 
 

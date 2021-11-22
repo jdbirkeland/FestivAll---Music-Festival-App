@@ -24,7 +24,9 @@ import DayFriday from '../DayFriday/DayFriday';
 import DaySaturday from '../DaySaturday/DaySaturday';
 import DaySunday from '../DaySunday/DaySunday';
 import Favorites from '../Favorites/Favorites';
-
+import UserFriday from '../UserFriday/UserFriday';
+import UserSaturday from '../UserSaturday/UserSaturday';
+import UserSunday from '../UserSunday/UserSunday';
 
 import './App.css';
 
@@ -89,6 +91,18 @@ function App() {
           
           <ProtectedRoute exact path="/favorites" >
             <Favorites />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/userfriday" >
+            <UserFriday />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/usersaturday" >
+            <UserSaturday />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/usersunday" >
+            <UserSunday />
           </ProtectedRoute>
 
           <Route
