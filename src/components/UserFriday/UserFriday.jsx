@@ -21,13 +21,13 @@ function UserFriday(props) {
     const schedulerData = [];
 
     for (let i = 0; i < performance.length; i++) {
+        const friday = '2021-11-19'
         // console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
         let dateScheduler = {startDate: performance[i].set_start, endDate: performance[i].set_finish, title: performance[i].name};
         console.log(dateScheduler);
         schedulerData.push(dateScheduler)
     }
 
-    const friday = '2021-11-19'
     const currentDate = '2021-11-19';
     
 

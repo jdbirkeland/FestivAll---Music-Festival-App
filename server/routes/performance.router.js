@@ -2,24 +2,44 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//   // GET route
+// router.get('/', (req, res) => {
+//   console.log(req.user);
+
+//   let queryText = `SELECT "performance"."name", "stage_name", "set_start", "set_finish", "description", "link", "performance"."id" FROM performance
+//   JOIN "day" ON "performance"."day_performing" = "day"."id"
+//   JOIN "stage" ON "performance"."stage_id" = "stage"."id"
+//   WHERE "day_performing" = 1;
+//   `; //will change this to JUST friday
+
+//   pool.query(queryText)
+//   .then(result => {
+//       res.send(result.rows);
+//   }) .catch(err => {
+//       console.log('Errrrrror', err);
+//       res.sendStatus(500);
+//   });
+// });//End GET
+
   // GET route
-router.get('/', (req, res) => {
-  console.log(req.user);
-
-  let queryText = `SELECT "performance"."name", "stage_name", "set_start", "set_finish", "description", "link", "performance"."id" FROM performance
-  JOIN "day" ON "performance"."day_performing" = "day"."id"
-  JOIN "stage" ON "performance"."stage_id" = "stage"."id"
-  WHERE "day_performing" = 1;
-  `; //will change this to JUST friday
-
-  pool.query(queryText)
-  .then(result => {
-      res.send(result.rows);
-  }) .catch(err => {
-      console.log('Errrrrror', err);
-      res.sendStatus(500);
-  });
-});//End GET
+  router.get('/', (req, res) => {
+    console.log(req.user);
+  
+    let queryText = `SELECT "performance2"."name", "day"."day", "stage"."stage_name", "set_start" + INTERVAL '6 hours' as "set_start" ,  "set_finish" + INTERVAL '6 hours' as "set_finish" , "description", "link" FROM performance2
+    JOIN "day" ON "performance2"."day_performing" = "day"."id"
+    JOIN "stage" ON "performance2"."stage_id" = "stage"."id"
+    WHERE "day_performing" = 1;
+    `; //will change this to JUST friday
+  
+    pool.query(queryText)
+    .then(result => {
+        res.send(result.rows);
+    }) .catch(err => {
+        console.log('Errrrrror', err);
+        res.sendStatus(500);
+    });
+  });//End GET
+  
 
 /**
  * POST route template
