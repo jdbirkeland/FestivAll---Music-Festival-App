@@ -20,7 +20,7 @@ function UserSaturday(props) {
     const performance = useSelector((store) => store.performanceReducer);
 
     for (let i = 0; i < performance.length; i++) {
-        console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
+        console.log(performance[i].name);
     }
 
     const currentDate = '2021-11-20';
