@@ -6,9 +6,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT "performance2"."name", "day"."day", "stage"."stage_name", "set_start" ,  "set_finish", "description", "link" FROM performance2
-  JOIN "day" ON "performance2"."day_performing" = "day"."id"
-  JOIN "stage" ON "performance2"."stage_id" = "stage"."id"
+  let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start" ,  "set_finish", "description", "link" FROM performance
+  JOIN "day" ON "performance"."day_performing" = "day"."id"
+  JOIN "stage" ON "performance"."stage_id" = "stage"."id"
   WHERE "day_performing" = 3;`; //will change this to JUST Sunday
 
   pool.query(queryText)
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
   console.log('user', req.user);
 
   const sqlText = `
-  INSERT INTO "performance2" ("name", "day_performing","stage_id","set_start","set_finish","description","link","user_id")
+  INSERT INTO "performance" ("name", "day_performing","stage_id","set_start","set_finish","description","link","user_id")
   VALUES ($1,$2,$3,$4,$5,$6,$7,$8);`
 
   const userID = req.user.id
@@ -54,7 +54,7 @@ router.delete('/:id', (req, res) => {
 
  //query text needs to combine item id and check user id against the databases user_id
  let queryText = `
- DELETE FROM "performance2"
+ DELETE FROM "performance"
  WHERE "id" = $1 AND "user_id" = $2
  `;
 
@@ -74,7 +74,7 @@ router.put('/:id', (req,res) => {
   console.log('This is what is being Updated', idToUpdate);
   console.log('this is req.params', req.params);
 
-  let queryText = `UPDATE "performance2"
+  let queryText = `UPDATE "performance"
   SET "name" = $1, "day_performing" = $2,"stage_id" = $3,"set_start" = $4,"set_finish" = $5,"description" = $6,"link" = $7 
   WHERE "id" = $8;`;
   let values = [req.body.name,req.body.day_performing,req.body.stage_id,req.body.set_start,req.body.set_finish,req.body.description,req.body.link, idToUpdate]

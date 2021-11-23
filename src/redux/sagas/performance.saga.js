@@ -16,7 +16,7 @@ function* fetchDisplay() {
 function* deleteItem(action) {
     try {
         yield axios.delete(`/api/performance/${action.payload}`);
-        console.log(action.payload);
+        console.log('HELP',action.payload);
         yield put({ type: 'FETCH_DISPLAY_FRIDAY' })
     } catch (error) {
         console.log('Error in Delete', error);
