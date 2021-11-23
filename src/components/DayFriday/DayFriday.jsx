@@ -108,7 +108,6 @@ function DayFriday(props) {
         })
     } //end handleDelete
 
-
     // const rows: GridRowsProp = [
     //     // { id: item.id, col1: item.name, col2: item.stage_name },
     //     { id: 2, col1: "XGrid", col2: "is Awesome" },
@@ -123,8 +122,6 @@ function DayFriday(props) {
     //     { field: "col1", headerName: "Column 1", width: 150 },
     //     { field: "col2", headerName: "Column 2", width: 150 }
     //   ];
-
-    // console.log(performance[1].name);
 
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
@@ -196,21 +193,6 @@ function DayFriday(props) {
             })}
             <PerformanceForm />
             <FixedBottomNavigation />
-
-            {/* <Paper>
-                <Scheduler
-                    data={schedulerData}
-                >
-                    <ViewState
-                        currentDate={currentDate}
-                    />
-                    <DayView
-                        startDayHour={12}
-                        endDayHour={24}
-                    />
-                    <Appointments />
-                </Scheduler>
-            </Paper> */}
 
         </div>
     )
