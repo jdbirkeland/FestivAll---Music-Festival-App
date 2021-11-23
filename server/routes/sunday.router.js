@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log(req.user);
 
-  let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start" ,  "set_finish", "description", "link" FROM performance
+  let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start" ,  "set_finish", "description", "link", "performance"."id" FROM performance
   JOIN "day" ON "performance"."day_performing" = "day"."id"
   JOIN "stage" ON "performance"."stage_id" = "stage"."id"
   WHERE "day_performing" = 3;`; //will change this to JUST Sunday
