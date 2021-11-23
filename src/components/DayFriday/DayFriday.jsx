@@ -14,6 +14,7 @@ import {
     DayView,
     Appointments,
 } from '@devexpress/dx-react-scheduler-material-ui';
+import FormDialog from '../PerformanceForm/PerformanceForm';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -191,7 +192,8 @@ function DayFriday(props) {
                             <DeleteIcon onClick={() => handleDelete(item)} />}Delete
                     </div>)
             })}
-            <PerformanceForm />
+            {/* <PerformanceForm /> */}
+            <FormDialog/>
             <FixedBottomNavigation />
 
         </div>
