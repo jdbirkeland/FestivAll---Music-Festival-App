@@ -21,28 +21,9 @@ import EditFormDialog from '../EditForm/EditForm';
 // component name TemplateFunction with the name for the new component.
 function DayFriday(props) {
 
-
-
     const dispatch = useDispatch();
 
     const performance = useSelector((store) => store.performanceReducer);
-
-    // performance.forEach(performance => {
-    //     for (let key in performance) {
-    //         // console.log(`${key}: ${performance[key]}`);
-    //         console.log(performance.name);
-    //     }
-    // });
-
-    // for (let i = 0; i < performance.length; i++) {
-    //     console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
-    // }
-
-    // const currentDate = '2021-11-20'; 
-    // const schedulerData = [
-    //     { startDate: '2021-11-20T14:45', endDate: '2021-11-20T16:00', title: 'pp' },
-    // ];
-
 
     const [heading, setHeading] = useState('Friday Day 1');
 
@@ -110,21 +91,7 @@ function DayFriday(props) {
         })
     } //end handleDelete
 
-    // const rows: GridRowsProp = [
-    //     // { id: item.id, col1: item.name, col2: item.stage_name },
-    //     { id: 2, col1: "XGrid", col2: "is Awesome" },
-    //     { id: 3, col1: "Material-UI", col2: "is Amazing" },
-    //     { id: 4, col1: "Hello", col2: "World" },
-    //     { id: 5, col1: "XGrid", col2: "is Awesome" },
-    //     { id: 6, col1: "Material-UI", col2: "is Amazing" }
-    //   ];
-
-    //   const columns: GridColDef[] = [
-    //     { field: "id", hide: true },
-    //     { field: "col1", headerName: "Column 1", width: 150 },
-    //     { field: "col2", headerName: "Column 2", width: 150 }
-    //   ];
-
+    
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     return (

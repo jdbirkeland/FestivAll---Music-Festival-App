@@ -94,7 +94,7 @@ function DaySunday(props) {
             <p>Artist: {item.name}</p>
             {/* <p>{item.day_performing}</p> */}
             <p>Stage: {item.stage_name}</p>
-            <p>Set Time: {item.set_start} - {item.set_finish}</p>
+            <p>Set Time: {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}</p>
             <p>{item.description}</p>
             <p>{item.link}</p>
             {/* <img className="items" src={item.image_url} /> */}
