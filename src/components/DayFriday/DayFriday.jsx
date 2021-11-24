@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import './DayFriday.css';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import Paper from '@material-ui/core/Paper';
@@ -91,7 +91,7 @@ function DayFriday(props) {
         })
     } //end handleDelete
 
-    
+
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     return (
@@ -107,8 +107,8 @@ function DayFriday(props) {
                             <th>Stage</th>
                             <th>Set Times</th>
                             {/* <th>Set Finish</th> */}
-                            <th>Description</th>
-                            <th>Link</th>
+                            {/* <th>Description</th>
+                            <th>Link</th> */}
                             <th />
                         </tr>
                     </thead>
