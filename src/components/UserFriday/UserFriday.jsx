@@ -79,9 +79,11 @@ function UserFriday(props) {
                     />
                     <Appointments />
                     <AppointmentTooltip 
+                    showOpenButton
+                    showDeleteButton
                     // headerComponent={Header}
                     // contentComponent={Content}
-                    commandButtonComponent={CommandButton}
+                    // commandButtonComponent={CommandButton}
                     // showCloseButton
                     // contentComponent={StarBorderIcon}
                     /> 
