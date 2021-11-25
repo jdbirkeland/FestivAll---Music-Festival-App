@@ -55,6 +55,10 @@ function UserFriday(props) {
       }) => (
         <AppointmentTooltip.CommandButton {...restProps} className={classes.commandButton} />
       ));
+
+    console.log(Appointments);
+
+    
       
     return (
         <div className="container">
@@ -80,10 +84,10 @@ function UserFriday(props) {
                     <Appointments />
                     <AppointmentTooltip 
                     showOpenButton
-                    showDeleteButton
+                    
                     // headerComponent={Header}
                     // contentComponent={Content}
-                    // commandButtonComponent={CommandButton}
+                    commandButtonComponent={StarBorderIcon} 
                     // showCloseButton
                     // contentComponent={StarBorderIcon}
                     /> 
