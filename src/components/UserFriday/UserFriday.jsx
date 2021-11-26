@@ -49,21 +49,6 @@ function UserFriday(props) {
         dispatch({ type: 'FETCH_DISPLAY_FRIDAY' })
     }, []);
 
-    // const style = ({ palette }) => ({
-    //     commandButton: {
-    //         backgroundColor: 'rgba(255,255,255,0.65)',
-    //     },
-    // });
-
-    // const CommandButton = withStyles(style, { name: 'CommandButton' })(({
-    //     classes, ...restProps
-    // }) => (
-    //     <AppointmentTooltip.CommandButton {...restProps} className={classes.commandButton} />
-    // ));
-
-    // console.log(performance[0].stage_name);
-
-    //create alert when you click StarBorderIon
 
     const handleStarClick = (event) => {
         event.preventDefault();
@@ -102,12 +87,12 @@ function UserFriday(props) {
                     <ViewState
                         currentDate={currentDate}
                     />
-                    <EditingState />
+                    {/* <EditingState />
                     <Editing
-                        allowDragging={false}
-                        allowAdding ={false}
+                        // allowDragging={false}
+                        // allowAdding ={false}
                     />
-                    <IntegratedEditing  />
+                    <IntegratedEditing  /> */}
 
                     <DayView
                         startDayHour={12}
@@ -125,12 +110,12 @@ function UserFriday(props) {
                     // contentComponent={StarBorderIcon}
                     />
                     <AppointmentForm />
-                    <EditingState  />
+                    {/* <EditingState  />
                     <Editing
                         allowDragging={false}
                         
                     />
-                    <IntegratedEditing  />
+                    <IntegratedEditing  /> */}
 
                     {/* <CommandButton onClick={handleStarClick} /> */}
                     <Resource
