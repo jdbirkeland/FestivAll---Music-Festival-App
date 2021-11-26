@@ -16,6 +16,8 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0-rc.1",
+    "devextreme": "21.2.3",
+    "devextreme-react": "21.2.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "passport": "^0.4.1",

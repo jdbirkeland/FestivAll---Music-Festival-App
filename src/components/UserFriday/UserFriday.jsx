@@ -2,19 +2,23 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+// import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState, IntegratedEditing } from '@devexpress/dx-react-scheduler';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import {
-  Scheduler,
-  DayView,
-  Appointments,
-  AppointmentForm,
-  AppointmentTooltip,
-  ConfirmationDialog,
+    Scheduler,
+    DayView,
+    Appointments,
+    AppointmentForm,
+    AppointmentTooltip,
+    ConfirmationDialog,
 } from '@devexpress/dx-react-scheduler-material-ui';
 import { withStyles } from '@material-ui/core/styles';
+import {
+    Resource,
+    Editing,
+} from 'devextreme-react/scheduler';
 
 
 
@@ -38,59 +42,104 @@ function UserFriday(props) {
 
 
     const [heading, setHeading] = useState('USER Friday Day 1');
+    const [favorite, setFavorite] = useState('Favorite');
 
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DISPLAY_FRIDAY' })
     }, []);
 
-    const style = ({ palette }) => ({
-        commandButton: {
-          backgroundColor: 'rgba(255,255,255,0.65)',
+    // const style = ({ palette }) => ({
+    //     commandButton: {
+    //         backgroundColor: 'rgba(255,255,255,0.65)',
+    //     },
+    // });
+
+    // const CommandButton = withStyles(style, { name: 'CommandButton' })(({
+    //     classes, ...restProps
+    // }) => (
+    //     <AppointmentTooltip.CommandButton {...restProps} className={classes.commandButton} />
+    // ));
+
+    // console.log(performance[0].stage_name);
+
+    //create alert when you click StarBorderIon
+
+    const handleStarClick = (event) => {
+        event.preventDefault();
+        alert('You clicked on the star button');
+    }
+
+    const groups = ['favorite'];
+
+    const priorityData = [
+        {
+            text: 'Set to Favorite',
+            id: 1,
+            color: '#1e90ff',
+        }, {
+            text: '',
+            id: 2,
+            color: '#ff9747',
         },
-      });      
+    ];
 
-    const CommandButton = withStyles(style, { name: 'CommandButton' })(({
-        classes, ...restProps
-      }) => (
-        <AppointmentTooltip.CommandButton {...restProps} className={classes.commandButton} />
-      ));
 
-    console.log(Appointments);
 
-    
-      
     return (
         <div className="container">
             <h2>{heading}</h2>
 
             {/* <PerformanceForm /> */}
-            <Paper >
-            
-                <Scheduler
+            <Paper>
+                <StarBorderIcon onClick={handleStarClick} />
+                <Scheduler 
+                    adaptivityEnabled={true}
                     data={schedulerData}
-                    
+                    groups={groups}
+
                 >
                     <ViewState
                         currentDate={currentDate}
                     />
                     <EditingState />
-                    <IntegratedEditing />
+                    <Editing
+                        allowDragging={false}
+                        allowAdding ={false}
+                    />
+                    <IntegratedEditing  />
 
                     <DayView
                         startDayHour={12}
                         endDayHour={24}
                     />
                     <Appointments />
-                    <AppointmentTooltip 
-                    showOpenButton
+                    <AppointmentTooltip
                     
-                    // headerComponent={Header}
-                    // contentComponent={Content}
-                    commandButtonComponent={StarBorderIcon} 
+                        showOpenButton
+
+                        // headerComponent={Header}
+                        // contentComponent={Content}
+                        // commandButtonComponent
                     // showCloseButton
                     // contentComponent={StarBorderIcon}
-                    /> 
+                    />
+                    <AppointmentForm />
+                    <EditingState  />
+                    <Editing
+                        allowDragging={false}
+                        
+                    />
+                    <IntegratedEditing  />
+
+                    {/* <CommandButton onClick={handleStarClick} /> */}
+                    <Resource
+                        fieldExpr="Favorite"
+                        allowMultiple={false}
+                        dataSource={priorityData}
+                        label="Favorite"
+                    />
+
                 </Scheduler>
             </Paper>
 
