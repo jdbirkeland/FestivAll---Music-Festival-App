@@ -35,6 +35,8 @@ function App() {
 
   const user = useSelector(store => store.user);
 
+  console.log('user', user.clearance_level);
+
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);

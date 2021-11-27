@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FixedBottomNavigation from '../BottomNavFavs/BottomNavFavs';
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState, IntegratedEditing } from '@devexpress/dx-react-scheduler';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 import {
   Scheduler,
   DayView,
@@ -80,7 +80,7 @@ function Favorites(props) {
     <div className="container">
       <h2>{heading}</h2>
       <Paper >
-        <StarBorderIcon onClick={handleStarClick} />
+        <StarIcon onClick={handleStarClick} />
         <Scheduler
           adaptivityEnabled={true}
           data={schedulerData}
@@ -92,20 +92,19 @@ function Favorites(props) {
             startDayHour={12}
             endDayHour={24}
           />
-          <EditingState />
+          {/* <EditingState />
           <Editing />
-          <IntegratedEditing />
+          <IntegratedEditing /> */}
 
           <Appointments />
-          <AppointmentTooltip
-            showOpenButton
-            showCloseButton
+          <AppointmentTooltip 
+            showOpenButton = {StarIcon}
+            showCloseButton 
           />
           <AppointmentForm />
-          <Button
-            onClick={handleButtonClick}
-          />
-          <ConfirmationDialog />
+          {/* <StarIcon onClick={handleButtonClick} /> */}
+         
+          {/* <ConfirmationDialog /> */}
           <Resource
             fieldExpr="Favorite"
             allowMultiple={false}

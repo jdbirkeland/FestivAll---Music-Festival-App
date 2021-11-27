@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {rejectUnauthenticated,} = require('../modules/authentication-middleware');
 
 //   // GET route
 // router.get('/', (req, res) => {
@@ -22,7 +23,7 @@ const router = express.Router();
 // });//End GET
 
   // GET route
-  router.get('/', (req, res) => {
+  router.get('/', rejectUnauthenticated, (req, res) => {
     console.log(req.user);
   
     let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start",  "set_finish" , "description", "link", "performance"."id" FROM performance
