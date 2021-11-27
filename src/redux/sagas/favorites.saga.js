@@ -7,12 +7,12 @@ function* fetchDisplay() {
         const response = yield axios.get('/api/favorites')
         yield put({ type: 'SET_DISPLAY', payload: response.data })
     } catch (err) {
-        console.log('Error in FETCH_DISPLAY', err);
+        console.log('Error in FETCH_DISPLAY_FAVOIRTES', err);
     }
 } //end fetchDisplay
 
 function* favoritesSaga() {
-    yield takeLatest('FETCH_DISPLAY', fetchDisplay)
+    yield takeLatest('FETCH_DISPLAY_FAVORITES', fetchDisplay)
 }
 
 export default favoritesSaga;

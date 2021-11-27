@@ -19,6 +19,8 @@ import {
     Resource,
     Editing,
 } from 'devextreme-react/scheduler';
+import Button from 'devextreme-react/button';
+import { useCallback } from 'react';
 
 
 
@@ -33,7 +35,7 @@ function UserFriday(props) {
 
     for (let i = 0; i < performance.length; i++) {
         // console.log(performance[i].name, performance[i].set_start, performance[i].set_finish);
-        let dateScheduler = { startDate: performance[i].set_start, endDate: performance[i].set_finish, title: performance[i].name };
+        let dateScheduler = { startDate: performance[i].set_start, endDate: performance[i].set_finish, title: performance[i].name, stage: performance[i].stage_name };
         console.log(dateScheduler);
         schedulerData.push(dateScheduler)
     }
@@ -51,7 +53,7 @@ function UserFriday(props) {
 
 
     const handleStarClick = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         alert('You clicked on the star button');
     }
 
@@ -69,54 +71,73 @@ function UserFriday(props) {
         },
     ];
 
+    // const Content = () => <div>schedulerData</div>;
+    // const form = event.form;
+    // let mainGroupItems = form.itemOption('mainGroup').items;
+    // if (!mainGroupItems.find(function(i) { return i.dataField === "phone" })) {
+    //     mainGroupItems.push({
+    //         colSpan: 2, 
+    //         label: { text: "Phone Number" },
+    //         editorType: "dxTextBox",
+    //         dataField: "phone"
+    //     });
+    //     form.itemOption('mainGroup', 'items', mainGroupItems);
+    // }
 
+    const handleButtonClick = useCallback((e) => {
+        alert("The button was clicked")
+    }, []);
+
+    console.log({schedulerData});
 
     return (
         <div className="container">
             <h2>{heading}</h2>
 
             {/* <PerformanceForm /> */}
-            <Paper>
+            <Paper >
                 <StarBorderIcon onClick={handleStarClick} />
-                <Scheduler 
+                <Scheduler
                     adaptivityEnabled={true}
                     data={schedulerData}
-                    groups={groups}
-
+                // groups={groups}
                 >
+          
+                    {/* <Resource
+                        dataSource={schedulerData}
+                        fieldExpr="stage_name"
+                        label="Stage"
+                    /> */}
+
                     <ViewState
                         currentDate={currentDate}
                     />
-                    {/* <EditingState />
-                    <Editing
-                        // allowDragging={false}
-                        // allowAdding ={false}
-                    />
-                    <IntegratedEditing  /> */}
-
                     <DayView
                         startDayHour={12}
                         endDayHour={24}
                     />
+
+                    <EditingState />
+                    <Editing
+                        // allowDragging={false}
+                        // allowAdding ={false}
+                    />
+                    <IntegratedEditing  />
+
                     <Appointments />
                     <AppointmentTooltip
-                    
                         showOpenButton
-
-                        // headerComponent={Header}
-                        // contentComponent={Content}
-                        // commandButtonComponent
-                    // showCloseButton
+                        showCloseButton
+                    // headerComponent={Header}
+                    // contentComponent={Content}
+                    // commandButtonComponent
                     // contentComponent={StarBorderIcon}
                     />
                     <AppointmentForm />
-                    {/* <EditingState  />
-                    <Editing
-                        allowDragging={false}
-                        
-                    />
-                    <IntegratedEditing  /> */}
-
+                    <Button
+                onClick={handleButtonClick}
+            />
+            <ConfirmationDialog />
                     {/* <CommandButton onClick={handleStarClick} /> */}
                     <Resource
                         fieldExpr="Favorite"

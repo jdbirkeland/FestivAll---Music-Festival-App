@@ -23,7 +23,7 @@ export default function* rootSaga() {
     performanceSaga(),
     saturdaySaga(),
     sundaySaga(),
-    // favoritesSaga(),
+    favoritesSaga(),
     addItemSaga(),
   ]);
 }
