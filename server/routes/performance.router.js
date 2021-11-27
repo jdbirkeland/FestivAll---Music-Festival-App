@@ -3,28 +3,51 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const {rejectUnauthenticated,} = require('../modules/authentication-middleware');
 
+//   // GET route
+// router.get('/', (req, res) => {
+//   console.log(req.user);
+
+//   let queryText = `SELECT "performance"."name", "stage_name", "set_start", "set_finish", "description", "link", "performance"."id" FROM performance
+//   JOIN "day" ON "performance"."day_performing" = "day"."id"
+//   JOIN "stage" ON "performance"."stage_id" = "stage"."id"
+//   WHERE "day_performing" = 1;
+//   `; //will change this to JUST friday
+
+//   pool.query(queryText)
+//   .then(result => {
+//       res.send(result.rows);
+//   }) .catch(err => {
+//       console.log('Errrrrror', err);
+//       res.sendStatus(500);
+//   });
+// });//End GET
+
   // GET route
-router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log(req.user);
+  router.get('/', rejectUnauthenticated, (req, res) => {
+    console.log(req.user);
+  
+    let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start",  "set_finish" , "description", "link", "performance"."id" FROM performance
+    JOIN "day" ON "performance"."day_performing" = "day"."id"
+    JOIN "stage" ON "performance"."stage_id" = "stage"."id"
+    WHERE "day_performing" = 1;
+    `; //will change this to JUST friday
+  
+    pool.query(queryText)
+    .then(result => {
+        res.send(result.rows);
+    }) .catch(err => {
+        console.log('Errrrrror', err);
+        res.sendStatus(500);
+    });
+  });//End GET
+  
 
-  let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start",  "set_finish" , "description", "link", "performance"."id" FROM performance
-  JOIN "day" ON "performance"."day_performing" = "day"."id"
-  JOIN "stage" ON "performance"."stage_id" = "stage"."id"
-  WHERE "day_performing" = 2;`; //will change this to JUST Saturday
-
-  pool.query(queryText)
-  .then(result => {
-      res.send(result.rows);
-  }) .catch(err => {
-      console.log('Errrrrror', err);
-      res.sendStatus(500);
-  });
-
-});//End Get
-
+/**
+ * POST route template
+ */
 router.post('/', (req, res) => {
   // POST route code here
-  console.log('saturday POST');
+  console.log('friday POST');
   console.log('user', req.user);
 
   const sqlText = `
@@ -56,7 +79,7 @@ router.delete('/:id', (req, res) => {
  //query text needs to combine item id and check user id against the databases user_id
  let queryText = `
  DELETE FROM "performance"
- WHERE "id" = $1 AND "user_id" = $2
+ WHERE "id" = $1 AND "user_id" = $2;
  `;
 
  pool.query(queryText, [idToDelete, idUser])
@@ -88,11 +111,5 @@ router.put('/:id', (req,res) => {
   })
 })
 
-// /**
-//  * POST route template
-//  */
-// router.post('/', (req, res) => {
-//   // POST route code here
-// });
 
 module.exports = router;

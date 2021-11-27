@@ -9,10 +9,10 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const fridayRouter = require('./routes/friday.router');
+const performanceRouter = require('./routes/performance.router');
 const saturdayRouter = require('./routes/saturday.router');
 const sundayRouter = require('./routes/sunday.router');
-const favoritesRouter = require('./routes/sunday.router');
+const favoritesRouter = require('./routes/favorites.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +26,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/friday', fridayRouter);
+app.use('/api/performance', performanceRouter);
 app.use('/api/saturday', saturdayRouter);
 app.use('/api/sunday', sundayRouter);
 app.use('/api/favorites', favoritesRouter);
