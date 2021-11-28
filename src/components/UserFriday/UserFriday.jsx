@@ -21,6 +21,7 @@ import {
 } from 'devextreme-react/scheduler';
 import Button from 'devextreme-react/button';
 import { useCallback } from 'react';
+import './UserFriday.css'
 
 
 
@@ -84,6 +85,40 @@ function UserFriday(props) {
     //     form.itemOption('mainGroup', 'items', mainGroupItems);
     // }
 
+    let stageName = 'Viking';
+
+    // for (let i = 0; i < performance.length; i++) {
+    //     let nameStage = { stage: performance[i].stage_name };
+    //     console.log(nameStage);
+    //     stageName.push(nameStage)
+    // }
+
+    console.log(stageName);
+
+
+   
+    const TextEditor = (props) => {
+        // eslint-disable-next-line react/destructuring-assignment
+        if (props.type === 'multilineTextEditor') {
+          return null;
+        } return <AppointmentForm.TextEditor {...props} />;
+    };
+
+    const BasicLayout = ({ onFieldChange, appointmentData, ...restProps }) => {
+        return (
+          <AppointmentForm.BasicLayout
+            appointmentData={appointmentData}
+            onFieldChange={onFieldChange}
+            {...restProps}   
+          >
+            <AppointmentForm.TextEditor
+              value = {stageName}
+              type="title"
+            />
+          </AppointmentForm.BasicLayout>
+        );
+      };
+
     const handleButtonClick = useCallback((e) => {
         alert("The button was clicked")
     }, []);
@@ -97,7 +132,8 @@ function UserFriday(props) {
             {/* <PerformanceForm /> */}
             <Paper >
                 <StarBorderIcon onClick={handleStarClick} />
-                <Scheduler
+                <Scheduler 
+                    className="scheduler"
                     adaptivityEnabled={true}
                     data={schedulerData}
                 // groups={groups}
@@ -133,7 +169,11 @@ function UserFriday(props) {
                     // commandButtonComponent
                     // contentComponent={StarBorderIcon}
                     />
-                    <AppointmentForm />
+                    <AppointmentForm
+                    basicLayoutComponent={BasicLayout}
+                    textEditorComponent={TextEditor}
+                     />
+                    
                     <Button
                 onClick={handleButtonClick}
             />
