@@ -5,6 +5,7 @@ import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FixedBottomNavigation from '../BottomNavSaturday/BottomNavSaturday';
+import './DaySaturday.css'
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -89,12 +90,12 @@ function DaySaturday(props) {
       {performance.map(item => {
         return (
           <div key={item.id}>
-            <p>Artist: {item.name}</p>
+            <p className="text">Artist: {item.name}</p>
             {/* <p>{item.day_performing}</p> */}
-            <p>Stage: {item.stage_name}</p>
-            <p>Set Time: {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}</p>
-            <p>{item.description}</p>
-            <p>{item.link}</p>
+            <p className="text">Stage: {item.stage_name}</p>
+            <p className="text">Set Time: {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}</p>
+            <p className="text" >{item.description}</p>
+            <p className="text">{item.link}</p>
             {/* <img className="items" src={item.image_url} /> */}
             <EditIcon onClick={() => handleEdit()} />Edit
             {editMode ?

@@ -98,7 +98,7 @@ function DaySunday(props) {
             <p>{item.description}</p>
             <p>{item.link}</p>
             {/* <img className="items" src={item.image_url} /> */}
-            <EditIcon onClick={() => handleEdit()} />
+            <EditIcon onClick={() => handleEdit()} />Edit
             {editMode ?
               <>
                 <form onSubmit={handleSubmit}>
@@ -147,7 +147,7 @@ function DaySunday(props) {
                   <button type="submit">Update Edit</button>
                 </form>
               </> :
-              <DeleteIcon onClick={() => handleDelete(item)} />}
+              <DeleteIcon onClick={() => handleDelete(item)} />}Delete
           </div>)
       })}
       <PerformanceForm />
