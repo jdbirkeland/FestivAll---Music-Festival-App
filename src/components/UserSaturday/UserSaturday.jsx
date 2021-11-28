@@ -41,7 +41,7 @@ function UserSaturday(props) {
 
     const currentDate = '2021-11-20';
 
-    const [heading, setHeading] = useState('USER Saturday Day 2');
+    const [heading, setHeading] = useState('Saturday - Day 2');
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DISPLAY_SATURDAY' })

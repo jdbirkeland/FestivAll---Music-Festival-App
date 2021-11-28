@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import FixedBottomNavigation from '../BottomNavSaturday/BottomNavSaturday';
+import FixedBottomNavigation from '../BottomNavSunday/BottomNavSunday';
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import Paper from '@material-ui/core/Paper';
 import { ViewState, EditingState, IntegratedEditing } from '@devexpress/dx-react-scheduler';
@@ -42,7 +42,7 @@ function UserSunday(props) {
 
     const currentDate = '2021-11-21';
 
-    const [heading, setHeading] = useState('USER Sunday Day 3');
+    const [heading, setHeading] = useState('Sunday - Day 3');
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DISPLAY_SUNDAY' })

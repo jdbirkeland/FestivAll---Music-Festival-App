@@ -57,7 +57,8 @@ function Favorites(props) {
   }
 
   const handleStarClick = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
+    // dispatch({ type: 'FETCH_DISPLAY_FAVORITES' })
     alert('You clicked on the star button');
   }
 
@@ -73,15 +74,56 @@ function Favorites(props) {
     },
   ];
 
-  console.log({schedulerData});
+      //start handleSubmit
+//   //start handleSubmit
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log('clicked');
+  //   console.log(newItem);
+  //   dispatch({ type: 'ADD_ITEM', payload: newItem })
+  //   setNewItem({
+  //     name: '',
+  //     day_performing: '',
+  //     stage_id: '',
+  //     set_start: '',
+  //     set_finish: '',
+  //     description: '',
+  //     link: '',
+  //   })
+  //   setOpen(false);
+  // } // end handleSubmit
 
+
+  let stageName = 'Viking';
+
+  const TextEditor = (props) => {
+    // eslint-disable-next-line react/destructuring-assignment
+    if (props.type === 'multilineTextEditor' || props.type === 'checkBox') {
+      return null;
+    } return <AppointmentForm.TextEditor {...props} />;
+  };
+
+  const BasicLayout = ({ onFieldChange, appointmentData, ...restProps }) => {
+    return (
+      <AppointmentForm.BasicLayout
+        appointmentData={appointmentData}
+        onFieldChange={onFieldChange}
+        {...restProps}
+      >
+        <AppointmentForm.TextEditor
+          value={stageName}
+          type="title"
+        />
+      </AppointmentForm.BasicLayout>
+    );
+  };
 
   return (
     <div className="container">
       <h2>{heading}</h2>
       <Paper >
         <StarIcon onClick={handleStarClick} />
-        <Scheduler
+        <Scheduler 
           adaptivityEnabled={true}
           data={schedulerData}
         >
@@ -92,26 +134,21 @@ function Favorites(props) {
             startDayHour={12}
             endDayHour={24}
           />
-          {/* <EditingState />
-          <Editing />
-          <IntegratedEditing /> */}
-
           <Appointments />
-          <AppointmentTooltip 
-            showOpenButton = {StarIcon}
-            showCloseButton 
+          <AppointmentTooltip
+            showOpenButton
+            showCloseButton
           />
-          <AppointmentForm />
-          {/* <StarIcon onClick={handleButtonClick} /> */}
-         
-          {/* <ConfirmationDialog /> */}
+          <AppointmentForm
+            basicLayoutComponent={BasicLayout}
+            textEditorComponent={TextEditor}
+          />
           <Resource
             fieldExpr="Favorite"
             allowMultiple={false}
             dataSource={priorityData}
             label="Favorite"
           />
-
         </Scheduler>
       </Paper>
       <FixedBottomNavigation />

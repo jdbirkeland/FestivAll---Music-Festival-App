@@ -29,7 +29,8 @@ const {rejectUnauthenticated,} = require('../modules/authentication-middleware')
     let queryText = `SELECT "performance"."name", "day"."day", "stage"."stage_name", "set_start",  "set_finish" , "description", "link", "performance"."id" FROM performance
     JOIN "day" ON "performance"."day_performing" = "day"."id"
     JOIN "stage" ON "performance"."stage_id" = "stage"."id"
-    WHERE "day_performing" = 1;
+    WHERE "day_performing" = 1
+    ORDER BY "set_start" ASC;
     `; //will change this to JUST friday
   
     pool.query(queryText)

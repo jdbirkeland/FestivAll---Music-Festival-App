@@ -27,7 +27,7 @@ function DayFriday(props) {
 
     const performance = useSelector((store) => store.performanceReducer);
 
-    const [heading, setHeading] = useState('Friday Day 1');
+    const [heading, setHeading] = useState('Friday - Day 1');
 
     const [editMode, setEditMode] = useState(false);
 
@@ -103,17 +103,19 @@ function DayFriday(props) {
                     <div key={item.id}>
                         <Box
                             sx={{
-                                display: 'flex',
+                                // display: 'flex',
                                 flexWrap: 'wrap',
-                                border: '4px solid white',
+                                border: '3px solid white',
                                 borderRadius: '20px',
-                                padding: '20px',
+                                padding: '12px',
+                                boxShadow: '0px 0px 10px white',
+
                             }}
                             >
                         {/* <Paper className="paper" elevation={15}> */}
                             <p className="text">Artist: {item.name}</p> 
                             <p className="text">Stage: {item.stage_name}</p>
-                            <p className="text">Set Start: {item?.set_start?.split('T')[1]} </p>
+                            <p className="text">Set Start: {item?.set_start?.split('T')[1]}</p>
                             <p className="text">Set Finish: {item?.set_finish?.split('T')[1]}</p>
 
                             <p className="text" >{item.description}</p>

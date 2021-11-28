@@ -6,6 +6,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FixedBottomNavigation from '../BottomNavSaturday/BottomNavSaturday';
 import './DaySaturday.css'
+import Box from '@mui/material/Box';
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -15,7 +17,7 @@ function DaySaturday(props) {
 
   const performance = useSelector((store) => store.performanceReducer);
 
-  const [heading, setHeading] = useState('Saturday Day 2');
+  const [heading, setHeading] = useState('Saturday - Day 2');
 
   const [editMode, setEditMode] = useState(false);
 
@@ -56,6 +58,7 @@ function DaySaturday(props) {
     console.log('clicked');
     console.log(editItem);
     dispatch({ type: 'EDIT_ITEM_SATURDAY', payload: editItem })
+    // dispatch({ type: 'FETCH_DISPLAY_SATURDAY' })
     setEditItem({
       id: '',
       name: '',
@@ -88,11 +91,27 @@ function DaySaturday(props) {
       {performance.map(item => {
         return (
           <div key={item.id}>
-            <p className="text">Artist: {item.name}</p>
-            <p className="text">Stage: {item.stage_name}</p>
-            <p className="text">Set Time: {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}</p>
-            <p className="text" >{item.description}</p>
-            <p className="text">{item.link}</p>
+                        <Box
+                            sx={{
+                                // display: 'flex',
+                                flexWrap: 'wrap',
+                                border: '3px solid white',
+                                borderRadius: '20px',
+                                padding: '12px',
+                                boxShadow: '0px 0px 10px white',
+
+                            }}
+                            >
+                        {/* <Paper className="paper" elevation={15}> */}
+                            <p className="text">Artist: {item.name}</p> 
+                            <p className="text">Stage: {item.stage_name}</p>
+                            <p className="text">Set Start: {item?.set_start?.split('T')[1]}</p>
+                            <p className="text">Set Finish: {item?.set_finish?.split('T')[1]}</p>
+
+                            <p className="text" >{item.description}</p>
+                            <p className="text">{item.link}</p>
+                        {/* </Paper> */}
+                        </Box>
             <EditIcon onClick={() => handleEdit()} />Edit
             {editMode ?
               <>

@@ -1,4 +1,4 @@
-const sundayReducer = (state = {}, action) => {
+const sundayReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_DISPLAY':
         return action.payload;

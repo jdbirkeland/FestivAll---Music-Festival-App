@@ -42,7 +42,7 @@ function UserFriday(props) {
 
     const currentDate = '2021-11-19';
 
-    const [heading, setHeading] = useState('USER Friday Day 1');
+    const [heading, setHeading] = useState('Friday - Day 1');
     const [favorite, setFavorite] = useState('Favorite');
 
     useEffect(() => {
@@ -69,19 +69,6 @@ function UserFriday(props) {
             color: '#ff9747',
         },
     ];
-
-    // const Content = () => <div>schedulerData</div>;
-    // const form = event.form;
-    // let mainGroupItems = form.itemOption('mainGroup').items;
-    // if (!mainGroupItems.find(function(i) { return i.dataField === "phone" })) {
-    //     mainGroupItems.push({
-    //         colSpan: 2, 
-    //         label: { text: "Phone Number" },
-    //         editorType: "dxTextBox",
-    //         dataField: "phone"
-    //     });
-    //     form.itemOption('mainGroup', 'items', mainGroupItems);
-    // }
 
     let stageName = 'Viking';
 
@@ -126,23 +113,13 @@ function UserFriday(props) {
     return (
         <div className="container">
             <h2>{heading}</h2>
-
-            {/* <PerformanceForm /> */}
             <Paper >
                 <StarBorderIcon onClick={handleStarClick} />
                 <Scheduler 
                     className="scheduler"
                     adaptivityEnabled={true}
                     data={schedulerData}
-                // groups={groups}
                 >
-          
-                    {/* <Resource
-                        dataSource={schedulerData}
-                        fieldExpr="stage_name"
-                        label="Stage"
-                    /> */}
-
                     <ViewState
                         currentDate={currentDate}
                     />
@@ -150,7 +127,6 @@ function UserFriday(props) {
                         startDayHour={12}
                         endDayHour={24}
                     />
-
                     <EditingState
                     onCommitChanges={handleStarClick}
                      />
@@ -173,9 +149,9 @@ function UserFriday(props) {
                     basicLayoutComponent={BasicLayout}
                     textEditorComponent={TextEditor}
                      />
-                    <Button text="Favorite"
+                    {/* <Button text="Favorite"
                 onClick={handleButtonClick}
-            />
+            /> */}
             <ConfirmationDialog />
                     {/* <CommandButton onClick={handleStarClick} /> */}
                     <Resource
