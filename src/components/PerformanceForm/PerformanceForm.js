@@ -74,7 +74,7 @@ export default function FormDialog() {
   
 return (
   <div>
-    <Button style={{backgroundColor: "royalblue", color: '#FFFFFF'}} variant="outlined" onClick={handleClickOpen}>
+    <Button style={{backgroundColor: "#00acb0", color: '#FFFFFF', borderColor: 'white', borderRadius: '12px', fontSize: '16px', fontWeight: 'bolder'}} variant="outlined" onClick={handleClickOpen}>
       Create New Performance
     </Button>
     <Dialog open={open} onClose={handleClose}>
