@@ -3,19 +3,21 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PerformanceForm from '../PerformanceForm/PerformanceForm';
 import './DayFriday.css';
+import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 // import EditIcon from '@mui/icons-material/Edit';
 import FixedBottomNavigation from '../BottomNavFriday/BottomNavFriday';
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+// import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import Paper from '@material-ui/core/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
-import {
-    Scheduler,
-    DayView,
-    Appointments,
-} from '@devexpress/dx-react-scheduler-material-ui';
-import FormDialog from '../PerformanceForm/PerformanceForm';
-import EditFormDialog from '../EditForm/EditForm';
+import Box from '@mui/material/Box';
+// import { ViewState } from '@devexpress/dx-react-scheduler';
+// import {
+//     Scheduler,
+//     DayView,
+//     Appointments,
+// } from '@devexpress/dx-react-scheduler-material-ui';
+// import FormDialog from '../PerformanceForm/PerformanceForm';
+// import EditFormDialog from '../EditForm/EditForm';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -26,8 +28,6 @@ function DayFriday(props) {
     const performance = useSelector((store) => store.performanceReducer);
 
     const [heading, setHeading] = useState('Friday Day 1');
-
-    // console.log(performance);
 
     const [editMode, setEditMode] = useState(false);
 
@@ -51,7 +51,7 @@ function DayFriday(props) {
         console.log('TEST!');
         setEditMode(!editMode) //toggle for editMode
     } //end handleEdit
-    
+
 
     //start handleNameChange
     const handleNameChange = (event, property, item) => {
@@ -98,121 +98,84 @@ function DayFriday(props) {
         <div className="container">
             <h2>{heading}</h2>
 
+            {performance.map(item => {
+                return (
+                    <div key={item.id}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                border: '4px solid white',
+                                borderRadius: '20px',
+                                padding: '20px',
+                            }}
+                            >
+                        {/* <Paper className="paper" elevation={15}> */}
+                            <p className="text">Artist: {item.name}</p> 
+                            <p className="text">Stage: {item.stage_name}</p>
+                            <p className="text">Set Start: {item?.set_start?.split('T')[1]} </p>
+                            <p className="text">Set Finish: {item?.set_finish?.split('T')[1]}</p>
 
-            <div className="responsive-table">
-                <table className="table align-middle">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Stage</th>
-                            <th>Set Times</th>
-                            {/* <th>Set Finish</th> */}
-                            {/* <th>Description</th>
-                            <th>Link</th> */}
-                            <th />
-                        </tr>
-                    </thead>
-                    {/* <DataGrid rows={rows} columns={columns} /> */}
-                    <tbody>
-                        {performance.map(item => {
-                            return (
-                                <tr key={item.id}>
-                                    <td>
-                                        {item?.name}
-                                    </td>
-                                    {/* <p>{item.day}</p> */}
-                                    <td>
-                                        {item?.stage_name}
-                                    </td>
-                                    <td>
-                                        {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}
-                                    </td>
-                                    <td>
-                                        {item?.description}
-                                    </td>
-                                    <td>
-                                        {item?.link}
-                                    </td>
-                                    <td>
-                                        <EditFormDialog/>
-                                        <DeleteIcon onClick={() => handleDelete(item)} />
-                                 Delete
+                            <p className="text" >{item.description}</p>
+                            <p className="text">{item.link}</p>
+                        {/* </Paper> */}
+                        </Box>
 
-                                        {/* <button
-                                            disabled={editItem}
-                                            className="btn btn-primary"
-                                            onClick={() => {
-                                                handleNameChange(event, 'name', item.id);
-                                            }}
-                                        >
-                                            Edit
-                                        </button> */}
-                                    </td>
-                                </tr>
 
-                                // {/* <img className="items" src={item.image_url} /> */ }
-                                //     <EditIcon onClick={() => handleEdit()} />Edit
-                                // {
-                                //     editMode?
-                                //     <>
-                                //     <form onSubmit={handleSubmit}>
-                                //     <input
-                                //     required
-                                //     value={editItem.name}
-                                //     onChange={(event) => handleNameChange(event, 'name', item.id)}
-                                //     placeholder="Artist Name"
-                                //     />
-                                //     <input
-                                //     required
-                                //     value={editItem.day_performing}
-                                //     onChange={(event) => handleNameChange(event, 'day_performing', item.id)}
-                                //     placeholder="Day Performing"
-                                //     />
-                                //     <input
-                                //     required
-                                //     value={editItem.stage_id}
-                                //     onChange={(event) => handleNameChange(event, 'stage_id', item.id)}
-                                //     placeholder="Stage"
-                                //     />
-                                //     <input
-                                //     required
-                                //     value={editItem.set_start}
-                                //     onChange={(event) => handleNameChange(event, 'set_start', item.id)}
-                                //     placeholder="Set Start Time"
-                                //     />
-                                //     <input
-                                //     required
-                                //     value={editItem.set_finish}
-                                //     onChange={(event) => handleNameChange(event, 'set_finish', item.id)}
-                                //     placeholder="Set Finish Time"
-                                //     />
-                                //     <input
-                                //     // required
-                                //     value={editItem.description}
-                                //     onChange={(event) => handleNameChange(event, 'description', item.id)}
-                                //     placeholder="Artist Description"
-                                //     />
-                                //     <input
-                                //     // required
-                                //     value={editItem.link}
-                                //     onChange={(event) => handleNameChange(event, 'link', item.id)}
-                                //     placeholder="Artist Link"
-                                //     />
-                                //     <button type ="submit">Update Edit</button>
-                                //     </form>
-                                //     </>:
-
-                            );
-                        })}
-                    </tbody>
-                </table>
-
-            </div >
-            {/* })} */}
-            {/* <PerformanceForm /> */}
-            <FormDialog />
+                        <EditIcon onClick={() => handleEdit()} />Edit
+                        {editMode ?
+                            <>
+                                <form onSubmit={handleSubmit}>
+                                    <input
+                                        required
+                                        value={editItem.name}
+                                        onChange={(event) => handleNameChange(event, 'name', item.id)}
+                                        placeholder="Artist Name"
+                                    />
+                                    <input
+                                        required
+                                        value={editItem.day_performing}
+                                        onChange={(event) => handleNameChange(event, 'day_performing', item.id)}
+                                        placeholder="Day Performing"
+                                    />
+                                    <input
+                                        required
+                                        value={editItem.stage_id}
+                                        onChange={(event) => handleNameChange(event, 'stage_id', item.id)}
+                                        placeholder="Stage"
+                                    />
+                                    <input
+                                        required
+                                        value={editItem.set_start}
+                                        onChange={(event) => handleNameChange(event, 'set_start', item.id)}
+                                        placeholder="Set Start Time"
+                                    />
+                                    <input
+                                        required
+                                        value={editItem.set_finish}
+                                        onChange={(event) => handleNameChange(event, 'set_finish', item.id)}
+                                        placeholder="Set Finish Time"
+                                    />
+                                    <input
+                                        // required
+                                        value={editItem.description}
+                                        onChange={(event) => handleNameChange(event, 'description', item.id)}
+                                        placeholder="Artist Description"
+                                    />
+                                    <input
+                                        // required
+                                        value={editItem.link}
+                                        onChange={(event) => handleNameChange(event, 'link', item.id)}
+                                        placeholder="Artist Link"
+                                    />
+                                    <button type="submit">Update Edit</button>
+                                </form>
+                            </> :
+                            <DeleteIcon onClick={() => handleDelete(item)} />}Delete
+                    </div>)
+            })}
+            <PerformanceForm />
             <FixedBottomNavigation />
-
         </div >
     )
 };

@@ -17,8 +17,6 @@ function DaySaturday(props) {
 
   const [heading, setHeading] = useState('Saturday Day 2');
 
-  console.log(performance);
-
   const [editMode, setEditMode] = useState(false);
 
   const [editItem, setEditItem] = useState({
@@ -91,12 +89,10 @@ function DaySaturday(props) {
         return (
           <div key={item.id}>
             <p className="text">Artist: {item.name}</p>
-            {/* <p>{item.day_performing}</p> */}
             <p className="text">Stage: {item.stage_name}</p>
             <p className="text">Set Time: {item?.set_start?.split('T')[1]} - {item?.set_finish?.split('T')[1]}</p>
             <p className="text" >{item.description}</p>
             <p className="text">{item.link}</p>
-            {/* <img className="items" src={item.image_url} /> */}
             <EditIcon onClick={() => handleEdit()} />Edit
             {editMode ?
               <>
