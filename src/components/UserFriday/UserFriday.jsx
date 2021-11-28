@@ -22,6 +22,7 @@ import {
 import Button from 'devextreme-react/button';
 import { useCallback } from 'react';
 import './UserFriday.css'
+import Form from 'devextreme-react/form';
 
 
 
@@ -55,7 +56,8 @@ function UserFriday(props) {
 
     const handleStarClick = (event) => {
         // event.preventDefault();
-        alert('You clicked on the star button');
+        console.log('clicked', event.target);
+        alert('Added To Favorites!');
     }
 
     const groups = ['favorite'];
@@ -99,7 +101,7 @@ function UserFriday(props) {
    
     const TextEditor = (props) => {
         // eslint-disable-next-line react/destructuring-assignment
-        if (props.type === 'multilineTextEditor') {
+        if (props.type === 'multilineTextEditor' || props.type === 'checkBox') {
           return null;
         } return <AppointmentForm.TextEditor {...props} />;
     };
@@ -153,7 +155,9 @@ function UserFriday(props) {
                         endDayHour={24}
                     />
 
-                    <EditingState />
+                    <EditingState
+                    onCommitChanges={handleStarClick}
+                     />
                     <Editing
                         // allowDragging={false}
                         // allowAdding ={false}
@@ -174,7 +178,7 @@ function UserFriday(props) {
                     textEditorComponent={TextEditor}
                      />
                     
-                    <Button
+                    <Button text="Favorite"
                 onClick={handleButtonClick}
             />
             <ConfirmationDialog />
