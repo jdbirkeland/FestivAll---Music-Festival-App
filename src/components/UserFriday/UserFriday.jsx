@@ -25,8 +25,6 @@ import './UserFriday.css'
 import Form from 'devextreme-react/form';
 
 
-
-
 function UserFriday(props) {
 
     const dispatch = useDispatch();
@@ -44,10 +42,8 @@ function UserFriday(props) {
 
     const currentDate = '2021-11-19';
 
-
     const [heading, setHeading] = useState('USER Friday Day 1');
     const [favorite, setFavorite] = useState('Favorite');
-
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DISPLAY_FRIDAY' })
@@ -177,7 +173,6 @@ function UserFriday(props) {
                     basicLayoutComponent={BasicLayout}
                     textEditorComponent={TextEditor}
                      />
-                    
                     <Button text="Favorite"
                 onClick={handleButtonClick}
             />

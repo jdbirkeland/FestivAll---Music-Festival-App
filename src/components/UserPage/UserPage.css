@@ -5,6 +5,8 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -0%);
+  border: 10px solid #f1f1f1;
+  padding: 10px;
 }
 
 body {
@@ -36,4 +38,6 @@ body {
    50%{top:0em}
    100%{top:0em;}
   }
+
+  
   
