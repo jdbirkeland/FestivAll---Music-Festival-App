@@ -86,7 +86,7 @@ function DaySunday(props) {
   // a default value of 'Functional Component'
   return (
     <div className="container">
-      <h2>{heading}</h2>
+            <h2>{heading}<PerformanceForm /></h2> 
 
       {performance.map(item => {
         return (
@@ -150,7 +150,6 @@ function DaySunday(props) {
               <DeleteIcon onClick={() => handleDelete(item)} />}Delete
           </div>)
       })}
-      <PerformanceForm />
       <FixedBottomNavigation/>
     </div>
   )
