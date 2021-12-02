@@ -37,6 +37,11 @@ function UserPage() {
           history.push('/favorites');
         }}>Favorites Page</button>
         <br />
+        <br/>
+        <button className="btn" onClick={() => {
+          history.push('/about');
+        }}>About</button>
+        <br />
       </div>
       <br />
       {/* <p>Your ID is: {user.id}</p> */}

@@ -146,7 +146,7 @@ return (
           autoFocus
           margin="dense"
           id="name"
-          label="Description(optional)"
+          label="Notes about Show(optional)"
           type="email"
           fullWidth
           variant="standard"
